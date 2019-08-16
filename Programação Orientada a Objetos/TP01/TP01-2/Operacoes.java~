@@ -1,0 +1,32 @@
+import java.util.Scanner
+
+public class Operacoes{
+  public static void main (String[] args) { 
+    Scanner scanner = new Scanner (System.in);
+    
+    float a,b,r;
+    char op;
+    System.out.println("Digite os numeros que serão utilizados ( A sequência importa )");
+    a = scanner.nextFloat();
+    b = scanner.nextFloat();
+    System.out.println("Digite a operação desejada:");
+    op = scanner.nextChar();
+    
+    if ( op == '+'){
+      r = a+b;
+      System.out.println ("O resultado da adição de "+a+" com "+b+" é "+r+".");
+    }
+    else if ( op == '-'){
+      r = a - b;
+      System.out.println("O resultado da subtração de "+a+" com "+b+" é "+r+".");
+    }
+    else if( op == '*'){
+      r = a * b;
+      System.out.println("O resultado da multiplicação de "+a+" com "+b+" é "+r+".");
+    }
+    else if ( op == '/'){
+      r = a / b;
+      System.out.println("O resultado da multiplicação de "+a+" com "+b+" é "+r+".");
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<vector>
+  <twitter.perfils.PessoaFisica>
+    <usuario>cidsantiago</usuario>
+    <seguidores>
+      <string>maria3peito</string>
+      <string>coders</string>
+      <string>coders</string>
+      <string>maria3peito</string>
+      <string>joaodopulo</string>
+    </seguidores>
+    <timeline>
+      <twitter.tweet.Tweet>
+        <usuario>santcorp</usuario>
+        <mensagem>teste 1</mensagem>
+      </twitter.tweet.Tweet>
+      <twitter.tweet.Tweet>
+        <usuario>cidsantiago</usuario>
+        <mensagem>teste 2</mensagem>
+      </twitter.tweet.Tweet>
+      <twitter.tweet.Tweet>
+        <usuario>cidsantiago</usuario>
+        <mensagem>teste 3</mensagem>
+      </twitter.tweet.Tweet>
+    </timeline>
+    <ativo>true</ativo>
+    <cpf>60742394360</cpf>
+  </twitter.perfils.PessoaFisica>
+  <twitter.perfils.PessoaJuridica>
+    <usuario>santcorp</usuario>
+    <seguidores>
+      <string>cidsantiago</string>
+      <string>joaodopulo</string>
+      <string>maria3peito</string>
+      <string>maria3peito</string>
+      <string>coders</string>
+    </seguidores>
+    <timeline>
+      <twitter.tweet.Tweet reference="../../../twitter.perfils.PessoaFisica/timeline/twitter.tweet.Tweet"/>
+    </timeline>
+    <ativo>true</ativo>
+    <cnpj>12345678912</cnpj>
+  </twitter.perfils.PessoaJuridica>
+  <twitter.perfils.PessoaFisica>
+    <usuario>joaodopulo</usuario>
+    <seguidores/>
+    <timeline>
+      <twitter.tweet.Tweet>
+        <usuario>joaodopulo</usuario>
+        <mensagem>teste joao</mensagem>
+      </twitter.tweet.Tweet>
+    </timeline>
+    <ativo>true</ativo>
+    <cpf>78945612378</cpf>
+  </twitter.perfils.PessoaFisica>
+  <twitter.perfils.PessoaFisica>
+    <usuario>maria3peito</usuario>
+    <seguidores/>
+    <timeline/>
+    <ativo>true</ativo>
+    <cpf>45678912345</cpf>
+  </twitter.perfils.PessoaFisica>
+  <twitter.perfils.PessoaJuridica>
+    <usuario>coders</usuario>
+    <seguidores/>
+    <timeline/>
+    <ativo>true</ativo>
+    <cnpj>14725836914</cnpj>
+  </twitter.perfils.PessoaJuridica>
+</vector>

@@ -1,0 +1,38 @@
+import java.util.scanner;
+
+public class OperacoesCase{
+    public static void main (String[] args){
+        Scanner input = new Scanner (System.in);
+        
+        String op;
+        float a,b,r;
+        System.out.println("Digite os números que deseja operar:");
+        a = input.nextFloat();
+        b = input.nextFloat();
+        System.out.println("Digite a opereção desejada:");
+        op = input.next();
+        
+        Switch(op){
+            case "+":{
+                r = a + b;
+                System.out.println ("O resultado da adição de "+a+" com "+b+" é "+r+".");
+                break;
+            }
+            case "-":{
+                 r = a - b;
+                 System.out.println("O resultado da subtração de "+a+" com "+b+" é "+r+".");
+                 break;
+            }
+            case "*":{
+                 r = a * b;
+                 System.out.println("O resultado da multiplicação de "+a+" com "+b+" é "+r+".");
+                 break;
+            }
+            case "/":{
+                      r = a / b;
+                      System.out.println("O resultado da multiplicação de "+a+" com "+b+" é "+r+".");
+                      break;
+            }
+        }
+    }
+}

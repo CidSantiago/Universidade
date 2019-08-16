@@ -1,0 +1,61 @@
+Respostas TD de revisão 1
+
+01.
+	a) Falso. Java não possui herança multipla!
+	b) Verdadeiro.
+	c) ?
+
+02.
+	C D B A
+
+03. 
+	a) Verdadeiro;
+	b) Verdadeiro;
+	c) Falso. O estado é definido pelo construtor;
+	d) Falso. Isso seria Herança e não sobrecarga;
+	e) Verdadeiro ;
+
+04.
+	E
+
+05.
+	a) Falso, pois homem não tem relação com urubu.
+	b) Falso, pois animal não é subtipo de homem.
+	c) Falso, pois ave não é subtipo de urubu.
+	d) Verdadeiro.
+	e) Verdadeiro.
+
+06.
+	a) Verdadeiro.
+	b) Falso. fazAlgo() já está sobrecarregado. Quando B herda A, ela sobrescreve o metodo fazAlgo(), pois possui os mesmos argumentos.
+	c) Falso. Metodos com argumentos diferentes não se sobrescrevem, e sim se sobrecarregam.
+	d) Falso. A classe B sobrescreve fazAlgo().
+	e) Verdadeiro.
+
+07.
+	a) Verdadeiro.
+	b) Verdadeiro.
+	c) cClasse abstrata.
+	d) Verdadeiro.
+	e) Falso. Eles são apenas metodos que mostram um atributo privado de fila.
+
+08.
+	a) Verdadeiro;
+	b) Falso. Beija flor não pode ser atribuido dinamicamente a urubu, pois beija-flor possue metodos que urubu não possui.
+	c) Verdadeiro;
+	d) Falso, pois o compilador só olha para o tipo estático;
+	e) Falso. Mesmo motivo de b.
+
+09.
+	a) Falso. g não pode acessar m1.
+	b) Falso. a não pode acessar m3.
+	c) Falso. e não pode ser atribuido dinamicamente a B.
+	d) Verdadeiro.
+	e) Falso. b não pode acessar dados de d sem cast.
+
+10.
+	a) Falso. Ele irá printar "A.m1"
+	b) Verdadeiro.
+	c) Falso. Ele irá printar "A.m1"
+	d) Falso. Ele irá printar "B.m2"
+	e) Falso. Ele irá printar "A.m1"
