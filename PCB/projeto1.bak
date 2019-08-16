@@ -1,0 +1,224 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L R R1
+U 1 1 5A00B8B5
+P 3500 2000
+F 0 "R1" V 3580 2000 50  0000 C CNN
+F 1 "1000" V 3500 2000 50  0000 C CNN
+F 2 "" V 3430 2000 50  0001 C CNN
+F 3 "" H 3500 2000 50  0001 C CNN
+	1    3500 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED D1
+U 1 1 5A00BE66
+P 2900 1350
+F 0 "D1" H 2900 1450 50  0000 C CNN
+F 1 "LED" H 2900 1250 50  0000 C CNN
+F 2 "" H 2900 1350 50  0001 C CNN
+F 3 "" H 2900 1350 50  0001 C CNN
+	1    2900 1350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Battery_Cell BT1
+U 1 1 5A00BF3B
+P 2200 2050
+F 0 "BT1" H 2300 2150 50  0000 L CNN
+F 1 "5V" H 2300 2050 50  0000 L CNN
+F 2 "" V 2200 2110 50  0001 C CNN
+F 3 "" V 2200 2110 50  0001 C CNN
+	1    2200 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 1350 2200 1850
+Wire Wire Line
+	3500 1350 3500 1850
+Wire Wire Line
+	2200 1350 2750 1350
+Wire Wire Line
+	3050 1350 3500 1350
+Wire Wire Line
+	2200 2150 2200 2600
+Wire Wire Line
+	3500 2600 3500 2150
+Wire Wire Line
+	2200 2600 3500 2600
+$Comp
+L R R2
+U 1 1 5A00C810
+P 5200 1850
+F 0 "R2" V 5280 1850 50  0000 C CNN
+F 1 "330" V 5200 1850 50  0000 C CNN
+F 2 "" V 5130 1850 50  0001 C CNN
+F 3 "" H 5200 1850 50  0001 C CNN
+	1    5200 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L R R3
+U 1 1 5A00C884
+P 5200 2050
+F 0 "R3" V 5280 2050 50  0000 C CNN
+F 1 "330" V 5200 2050 50  0000 C CNN
+F 2 "" V 5130 2050 50  0001 C CNN
+F 3 "" H 5200 2050 50  0001 C CNN
+	1    5200 2050
+	0    1    1    0   
+$EndComp
+$Comp
+L R R4
+U 1 1 5A00C8D1
+P 5200 2250
+F 0 "R4" V 5280 2250 50  0000 C CNN
+F 1 "330" V 5200 2250 50  0000 C CNN
+F 2 "" V 5130 2250 50  0001 C CNN
+F 3 "" H 5200 2250 50  0001 C CNN
+	1    5200 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L Conn_01x04 J1
+U 1 1 5A00C8FB
+P 4550 1200
+F 0 "J1" H 4550 1400 50  0000 C CNN
+F 1 "Conn_01x04" H 4550 900 50  0000 C CNN
+F 2 "" H 4550 1200 50  0001 C CNN
+F 3 "" H 4550 1200 50  0001 C CNN
+	1    4550 1200
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED_RCBG D2
+U 1 1 5A00C94A
+P 5550 2050
+F 0 "D2" H 5550 2420 50  0000 C CNN
+F 1 "LED_RCBG" H 5550 1700 50  0000 C CNN
+F 2 "" H 5550 2000 50  0001 C CNN
+F 3 "" H 5550 2000 50  0001 C CNN
+	1    5550 2050
+	-1   0    0    1   
+$EndComp
+Text Label 5000 1000 0    60   ~ 0
+RED
+Text Label 4950 1100 0    60   ~ 0
+GREEN
+Text Label 4950 1200 0    60   ~ 0
+BLUE
+Wire Wire Line
+	4750 1000 5000 1000
+Wire Wire Line
+	4750 1100 4950 1100
+Wire Wire Line
+	4950 1200 4750 1200
+Wire Wire Line
+	4750 1300 5050 1300
+Text Label 4850 1850 2    60   ~ 0
+RED
+Wire Wire Line
+	4850 1850 5050 1850
+Text Label 4850 2050 2    60   ~ 0
+GREEN
+Wire Wire Line
+	5050 2050 4850 2050
+Text Label 4850 2250 2    60   ~ 0
+BLUE
+Wire Wire Line
+	5050 2250 4850 2250
+Wire Wire Line
+	5750 2050 6050 2050
+$Comp
+L GND #PWR01
+U 1 1 5A00D3C9
+P 5050 1350
+F 0 "#PWR01" H 5050 1100 50  0001 C CNN
+F 1 "GND" H 5050 1200 50  0000 C CNN
+F 2 "" H 5050 1350 50  0001 C CNN
+F 3 "" H 5050 1350 50  0001 C CNN
+	1    5050 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 1300 5050 1350
+$Comp
+L GND #PWR02
+U 1 1 5A00D40C
+P 6050 2050
+F 0 "#PWR02" H 6050 1800 50  0001 C CNN
+F 1 "GND" H 6050 1900 50  0000 C CNN
+F 2 "" H 6050 2050 50  0001 C CNN
+F 3 "" H 6050 2050 50  0001 C CNN
+	1    6050 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #FLG03
+U 1 1 5A00D429
+P 6250 1150
+F 0 "#FLG03" H 6250 1225 50  0001 C CNN
+F 1 "PWR_FLAG" H 6250 1300 50  0000 C CNN
+F 2 "" H 6250 1150 50  0001 C CNN
+F 3 "" H 6250 1150 50  0001 C CNN
+	1    6250 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR04
+U 1 1 5A00D453
+P 6250 1150
+F 0 "#PWR04" H 6250 900 50  0001 C CNN
+F 1 "GND" H 6250 1000 50  0000 C CNN
+F 2 "" H 6250 1150 50  0001 C CNN
+F 3 "" H 6250 1150 50  0001 C CNN
+	1    6250 1150
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
