@@ -1,0 +1,41 @@
+1) Listar a matrícula, nome do vendedor e quantidade de vendas do vendedor com  maior número de vendas 
+
+Resposta:
+SELECT v.cpfvend as 'CPF do Vendedor', v.Nome as 'Nome do vendedor', count(*) as 'Quantidade de vendas'
+FROM Vendedor v, Historico h
+WHERE v.cpfvend = h.cpfvend
+GROUP BY v.cpfvend, v.Nome
+HAVING count(*) = (select max(t.qtd)
+                   from (select count(*) as 'qtd'
+				         from Vendedor v, historico h
+						 where v.cpfvend = h.cpfvend
+						 group by v.cpfvend) as t)
+ORDER BY count(*) DESC
+
+2) Listar o nome do fornecedor com maior valor de vendas
+
+Resposta:
+
+SELECT f.nome as 'Fornecedor com maior valor de vendas'
+FROM Historico h, Estoque e, Fornecedores f, (SELECT SUM(h.quantidade*e.precovenda) as 'tot'
+	                                          FROM Historico h, Estoque e, Fornecedores f
+			                                  WHERE h.codest=e.codest AND f.codfor = e.codfor
+                                              GROUP BY f.codfor) t
+WHERE h.codest=e.codest AND f.codfor = e.codfor
+GROUP BY f.nome
+HAVING SUM(h.quantidade*e.precovenda) > max(t.tot)
+
+3) Listar a quantidade de vendas, quantidade de itens vendidos e valor total de vendas de cada filial. Ordenar o resultado em ordem descrescente por valor total de vendas.
+
+Resposta:
+SELECT f.nome as 'Nome da filial', count(*) as 'Qtd de vendas', sum(h.quantidade*e.precovenda) as 'Valor total de vendas'
+FROM Filiais f, Historico h, Estoque e, Vendedor v
+WHERE v.cpfvend = h.cpfvend AND h.codest = e.codest AND f.codfil = v.codfil
+GROUP BY f.nome
+ORDER BY 3 DESC
+
+4) Listar o nome da filial sem vendas.
+
+SELECT f.nome as 'Nome das Filiais'
+FROM Filiais f left outer join (Vendedor v inner join Historico h on v.cpfvend = h.cpfvend) on f.codfil = v.codfil
+WHERE h.cpfvend IS NULL

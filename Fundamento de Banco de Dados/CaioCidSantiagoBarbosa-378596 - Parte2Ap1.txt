@@ -1,0 +1,90 @@
+Aluno: Caio Cid Santiago Barbosa
+Mat: 378596
+----------------------------------------------------
+
+1) 
+select dept.nome, div.nome, e1.nome, sum(v.valor), 
+		isnull((select sum(d1.valor) 
+		 from Empregado e2, Emp_Desc ed1, Desconto d1
+		 where e2.matr = ed1.matr and d1.cod_desc = ed1.cod_desc and e1.matr = e2.matr),0), 
+		(sum(v.valor) - isnull((select sum(d2.valor) 
+								from empregado e3, Emp_Desc ed2, Desconto d2
+								where e3.matr = ed2.matr and ed2.cod_desc = d2.cod_desc 
+									  and e3.matr = e1.matr), 0)) as 'sal' 
+from empregado e1, Emp_Venc ev1, Vencimento v, Departamento dept, Divisao div 
+where e1.matr = ev1.matr and ev1.cod_venc = v.cod_venc and e1.cod_div = div.cod_div and div.cod_dept = dept.cod_dept
+group by e1.matr, dept.nome, div.nome, e1.nome
+ORDER BY 'sal' DESC
+
+2)
+-- Criando a Visão usando a consulta acima
+
+create view Visao1(matricula, Departamento, Divisao, Funcionario, SalBruto, Descontos, SalLiquido)
+as
+select e1.matr, dept.nome, div.nome, e1.nome, sum(v.valor), 
+		isnull((select sum(d1.valor) 
+		 from Empregado e2, Emp_Desc ed1, Desconto d1
+		 where e2.matr = ed1.matr and d1.cod_desc = ed1.cod_desc and e1.matr = e2.matr),0), 
+		(sum(v.valor) - isnull((select sum(d2.valor) 
+								from empregado e3, Emp_Desc ed2, Desconto d2
+								where e3.matr = ed2.matr and ed2.cod_desc = d2.cod_desc 
+									  and e3.matr = e1.matr), 0)) 
+from empregado e1, Emp_Venc ev1, Vencimento v, Departamento dept, Divisao div 
+where e1.matr = ev1.matr and ev1.cod_venc = v.cod_venc and e1.cod_div = div.cod_div and div.cod_dept = dept.cod_dept
+group by e1.matr, dept.nome, div.nome, e1.nome
+
+-- Consulta
+
+Select v1.Funcionario
+From ((Visao1 v1 inner join Empregado e ON v1.matricula = e.matr) inner join Divisao d ON e.cod_div = d.cod_div),
+	 (select avg(v2.SalLiquido) as 'media', d.cod_div as 'div'
+	  From ((Visao1 v2 inner join Empregado e ON v2.matricula = e.matr) inner join Divisao d ON e.cod_div = d.cod_div) 
+	  Group by d.cod_div) as med
+Where v1.SalLiquido > med.media AND med.div = d.cod_div
+
+3)
+Select dept.nome, div.nome, max(meddiv.media) 
+From Divisao div, Departamento dept , (select avg(v2.SalLiquido) as 'media', d.cod_div as 'div'
+										From ((Visao1 v2 inner join Empregado e ON v2.matricula = e.matr) 
+												inner join Divisao d ON e.cod_div = d.cod_div) 
+										Group by d.cod_div) as meddiv
+Where meddiv.div = div.cod_div AND dept.cod_dept = div.cod_dept
+GROUP BY dept.nome, div.nome, meddiv.media
+
+4)
+Select dept.nome, div.nome, meddiv.media, max(v1.SalLiquido)
+from (Departamento dept inner join(Divisao div inner join 
+								  (Empregado e inner join Visao1 v1 ON e.matr = v1.matricula)
+								   ON div.cod_div = e.cod_div)
+						ON dept.cod_dept = div.cod_dept),
+	 (select avg(v2.SalLiquido) as 'media', d.cod_div as 'div'
+	  From ((Visao1 v2 inner join Empregado e ON v2.matricula = e.matr) 
+			 inner join Divisao d ON e.cod_div = d.cod_div) 
+	  Group by d.cod_div) as meddiv
+Group by dept.nome, div.nome, meddiv.media
+
+5)
+
+select dept.nome, 
+	   (select e1.nome
+		from Empregado e1, Departamento dep1
+		where e1.matr = dep1.cod_dept_chefia), 
+		(select count(*)
+		from Empregado e2 inner join(Departamento dep2 
+		                  inner join Divisao div1 ON dep2.cod_dept = div1.cod_dept)
+									              ON div1.cod_div = e2.cod_div
+		Group by dep2.cod_dept),
+		avg(meddiv.media),
+		max(v1.SalLiquido),
+		min(v1.SalLiquido)
+		
+from Departamento dept inner join ((select avg(v2.SalLiquido) as 'media', d.cod_div as 'div'
+						            From ((Visao1 v2 inner join Empregado e ON v2.matricula = e.matr) 
+			                                         inner join Divisao d ON e.cod_div = d.cod_div) 
+	                                Group by d.cod_div) as meddiv inner join ( 
+									                   Divisao div inner join (
+													   Empregado e inner join Visao1 v1 ON e.matr = v1.matricula) 
+													                                    ON div.cod_div = e.cod_div)
+													                                    ON meddiv.div = div.cod_div)
+									ON dept.cod_dept = div.cod_dept
+Group by dept.nome

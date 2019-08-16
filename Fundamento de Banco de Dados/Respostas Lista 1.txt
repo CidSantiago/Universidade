@@ -1,0 +1,53 @@
+01) CREATE TABLE Fornecedor(
+	cod_for int NOT NULL,
+	nome char(50) NOT NULL,
+	ender char(100) NOT NULL,
+	cidade char(50) NOT NULL,
+	contato char(15) NOT NULL,
+	CONSTRAINT PK_Fornecedor PRIMARY KEY (cod_for)
+	);
+
+CREATE TABLE Filial(
+	cod_filial int NOT NULL,
+	nome char(50) NOT NULL,
+	ender char(100) NOT NULL,
+	CONSTRAINT PK_Filial PRIMARY KEY (cod_filial)
+	);
+
+CREATE TABLE Vendedores(
+	matr int NOT NULL,
+	nome char(50) NOT NULL,
+	CPF char(11) NOT NULL,
+	salario decimal(10,2) NOT NULL,
+	cod_filial int NOT NULL,
+	CONSTRAINT PK_Vendedores PRIMARY KEY (matr),
+	CONSTRAINT FK_VendedoresFilial FOREIGN KEY (cod_filial)
+	REFERENCES Filial(cod_filial) 
+	);
+
+CREATE TABLE Estoque(
+	cod_item int NOT NULL,
+	referencia char(50) NOT NULL,
+	pr_unit_compra decimal(10,2) NOT NULL,
+	pr_unit_venda decimal(10,2) NOT NULL,
+	qtde int NOT NULL,
+	cod_for int NOT NULL,
+	CONSTRAINT PK_Estoque PRIMARY KEY (cod_item),
+	CONSTRAINT FK_EstoqueFornecedor FOREIGN KEY (cod_for)
+	REFERENCES Fornecedor(cod_for) 
+	);
+
+CREATE TABLE Historico(
+	cod_item int NOT NULL,
+	matrvend int NOT NULL,
+	qtde int NOT NULL,
+	dt_hora_venda smalldatetime NOT NULL,
+	CONSTRAINT PK_Historico PRIMARY KEY (cod_item, matrvend, dt_hora_venda),
+	CONSTRAINT FK_EstoqueFornecedor FOREIGN KEY (cod_for)
+	REFERENCES Fornecedor(cod_for) 
+	);
+
+3)
+	a) π Fornecedor.nome, Vendedores.nome ((Fornecedor)⨝(Vendedores ⨝ (Historico ⨝ Estoque)))
+	b) 
+		

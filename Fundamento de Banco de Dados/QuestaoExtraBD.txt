@@ -1,0 +1,5 @@
+Especificar as seguintes restrições de integridade no SQL Server
+
+1) O volume de sálarios pagos em uma filial não pode ser maior que 15000
+
+2) Salário de um vendedor não pode ser maior do que duas vezes a média salarial da filian em que trabalha
