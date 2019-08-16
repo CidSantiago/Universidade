@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+ENTITY Circuito IS
+PORT(a0,a1,EN: IN std_logic;
+y0,y1,y2,y3: OUT std_logic);
+END Circuito;
+
+ARCHITECTURE circ OF Circuito IS
+
+SIGNAL not_outy0a0: std_logic;
+SIGNAL not_outy0a1: std_logic;
+SIGNAL not_outy1a1: std_logic;
+SIGNAL not_outy2a0: std_logic;
+
+BEGIN
+	portNot_a0y0: ENTITY work.portaInversora(inv)
+		PORT MAP (input => a0;
+			  output => not_outy0a0);
+	portNot_a1y0: ENTITY work.portaInversora(inv)
+		PORT MAP

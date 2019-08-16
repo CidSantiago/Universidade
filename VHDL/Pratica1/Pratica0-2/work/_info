@@ -1,0 +1,384 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/cidsa/Documents/UFC/VHDL/Pratica0
+Edecode2x4
+Z0 w1464373494
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2
+Z5 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4.vhd
+Z6 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4.vhd
+l0
+L5
+VXg^g=VRbbH4RYI93PlAiJ1
+!s100 MzO<PklPT[70;DmceW]Sj2
+Z7 OP;C;10.4a;61
+32
+Z8 !s110 1464373498
+!i10b 1
+Z9 !s108 1464373497.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4.vhd|
+Z11 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+Adec24
+Z14 DEx4 work 9 portaand3 0 22 Roh^8]R@OY]5>oz6GgJfm3
+Z15 DEx4 work 14 portainversora 0 22 3cjQ4;VIiChhQW6LSRFh93
+R1
+R2
+R3
+DEx4 work 9 decode2x4 0 22 Xg^g=VRbbH4RYI93PlAiJ1
+l15
+L12
+VaS^FIZjVR@[7MG8COUYT41
+!s100 GA=LVWHegY48ej01jAlXo0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edecode2x4cod
+Z16 w1464378557
+R1
+R2
+R3
+R4
+Z17 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4viaCodigoConc.vhd
+Z18 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4viaCodigoConc.vhd
+l0
+L5
+VWWdZ5Ff1VQf_j52TEMaJ93
+!s100 ikiXaJ6??1dS`dzKNf_Bb3
+R7
+32
+Z19 !s110 1464378561
+!i10b 1
+Z20 !s108 1464378561.000000
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4viaCodigoConc.vhd|
+Z22 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4viaCodigoConc.vhd|
+!i113 1
+R12
+R13
+Adec24cod
+R1
+R2
+R3
+DEx4 work 12 decode2x4cod 0 22 WWdZ5Ff1VQf_j52TEMaJ93
+l14
+L12
+VM3i_BfkQ]8iL4kI[9Yog_1
+!s100 L^T=DjaRDGZElk@dBf>RL3
+R7
+32
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R12
+R13
+Eencode4x2
+Z23 w1464377489
+R1
+R2
+R3
+R4
+Z24 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2.vhd
+Z25 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2.vhd
+l0
+L5
+V4II=Y4EWOG7ZdlaNAf`Jc1
+!s100 6i5nXMe<JoV>9ES9mFN8V0
+R7
+32
+Z26 !s110 1464377493
+!i10b 1
+Z27 !s108 1464377493.000000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2.vhd|
+Z29 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2.vhd|
+!i113 1
+R12
+R13
+Aenc42
+Z30 DEx4 work 9 portaand2 0 22 kZJ][Eh@Hd4;C:ne`X26j1
+Z31 DEx4 work 7 portaor 0 22 2gZ:Bcl0mh[z:k0H^0Jo@0
+R1
+R2
+R3
+DEx4 work 9 encode4x2 0 22 4II=Y4EWOG7ZdlaNAf`Jc1
+l15
+L12
+V=zRmdTJh]CY3kNgV<ZCf_0
+!s100 :RB9oO`bf_`X9OIBFVz5=3
+R7
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 1
+R12
+R13
+Eencode4x2cod
+Z32 w1464378706
+R1
+R2
+R3
+R4
+Z33 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2viaCodConc.vhd
+Z34 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2viaCodConc.vhd
+l0
+L5
+V>L8]g`BN`N4QF7TQzhJl]3
+!s100 LXmY?;j?2Tm=;K<<7z[gH2
+R7
+32
+Z35 !s110 1464378709
+!i10b 1
+Z36 !s108 1464378708.000000
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2viaCodConc.vhd|
+Z38 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2viaCodConc.vhd|
+!i113 1
+R12
+R13
+Aenc42cod
+R1
+R2
+R3
+DEx4 work 12 encode4x2cod 0 22 >L8]g`BN`N4QF7TQzhJl]3
+l14
+L12
+V7[lH^3J4kT2emI>fPWDaV3
+!s100 eO=;1h6V>Skmm7FYP:EWP1
+R7
+32
+R35
+!i10b 1
+R36
+R37
+R38
+!i113 1
+R12
+R13
+Eportaand
+Z39 w1463777051
+R1
+R2
+R3
+R4
+Z40 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd.vhd
+Z41 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd.vhd
+l0
+L5
+VPK25jkn>C5UXdV7YOjPkL0
+!s100 EL184kGd@7f3DJ<ZAI>KW0
+R7
+32
+Z42 !s110 1464298026
+!i10b 1
+Z43 !s108 1464298026.000000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd.vhd|
+Z45 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd.vhd|
+!i113 1
+R12
+R13
+Apand
+R1
+R2
+R3
+DEx4 work 8 portaand 0 22 PK25jkn>C5UXdV7YOjPkL0
+l14
+L12
+V]dLKai8[fYWLm>C8F_jYH1
+!s100 m0iJC=2]UZizBzYDe5UI:3
+R7
+32
+R42
+!i10b 1
+R43
+R44
+R45
+!i113 1
+R12
+R13
+Eportaand2
+Z46 w1464298395
+R1
+R2
+R3
+R4
+Z47 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd2.vhd
+Z48 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd2.vhd
+l0
+L5
+VkZJ][Eh@Hd4;C:ne`X26j1
+!s100 E=P_PaTzA3bUhU;C[ikda2
+R7
+32
+Z49 !s110 1464298396
+!i10b 1
+Z50 !s108 1464298396.000000
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd2.vhd|
+Z52 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd2.vhd|
+!i113 1
+R12
+R13
+Aand2
+R1
+R2
+R3
+R30
+l14
+L12
+VNQm0A?=6nEVnQcR?KJRQG1
+!s100 O;VVbkfl4cCiDjBnj5gPF3
+R7
+32
+R49
+!i10b 1
+R50
+R51
+R52
+!i113 1
+R12
+R13
+Eportaand3
+Z53 w1464372394
+R1
+R2
+R3
+R4
+Z54 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd3.vhd
+Z55 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd3.vhd
+l0
+L5
+VRoh^8]R@OY]5>oz6GgJfm3
+!s100 ceVZ0OlS_bM;6XE0iSJML2
+R7
+32
+Z56 !s110 1464372396
+!i10b 1
+Z57 !s108 1464372396.000000
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd3.vhd|
+Z59 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd3.vhd|
+!i113 1
+R12
+R13
+Aand3
+R30
+R1
+R2
+R3
+R14
+l15
+L12
+VU]cbGAWnmAEAmQ_6WUPom0
+!s100 nSA5<iHS>QBfb^I^;B0ab1
+R7
+32
+R56
+!i10b 1
+R57
+R58
+R59
+!i113 1
+R12
+R13
+Eportainversora
+Z60 w1464298090
+R1
+R2
+R3
+R4
+Z61 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaInversora.vhd
+Z62 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaInversora.vhd
+l0
+L5
+V3cjQ4;VIiChhQW6LSRFh93
+!s100 L3Gm^aC2OCB^97CTT4kYb2
+R7
+32
+Z63 !s110 1464298095
+!i10b 1
+Z64 !s108 1464298095.000000
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaInversora.vhd|
+Z66 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaInversora.vhd|
+!i113 1
+R12
+R13
+Ainv
+R1
+R2
+R3
+R15
+l14
+L12
+VD9]jdeEUBI;MK4PNQKmAW3
+!s100 YUXoNKj_Hk?KFa0I]XXBI3
+R7
+32
+R63
+!i10b 1
+R64
+R65
+R66
+!i113 1
+R12
+R13
+Eportaor
+Z67 w1464377026
+R1
+R2
+R3
+R4
+Z68 8C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaOr.vhd
+Z69 FC:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaOr.vhd
+l0
+L5
+V2gZ:Bcl0mh[z:k0H^0Jo@0
+!s100 hDVLH^IJg2Xo<RfGEQ1ii0
+R7
+32
+Z70 !s110 1464377032
+!i10b 1
+Z71 !s108 1464377031.000000
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaOr.vhd|
+Z73 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaOr.vhd|
+!i113 1
+R12
+R13
+Apor
+R1
+R2
+R3
+R31
+l14
+L12
+VRIfmJ[zLa?ZH_1<W>O?2P3
+!s100 AMjQIFV^^[a4niD:L^m4h3
+R7
+32
+R70
+!i10b 1
+R71
+R72
+R73
+!i113 1
+R12
+R13

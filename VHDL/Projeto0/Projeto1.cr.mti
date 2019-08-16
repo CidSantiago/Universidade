@@ -1,0 +1,19 @@
+C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/inversor.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/inversor.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity inversor
+-- Compiling architecture inv of inversor
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/main.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/main.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity main
+-- Compiling architecture myMain of main
+
+} {} {}}

@@ -1,0 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+ENTITY portaInversora IS
+	
+PORT(input:IN std_logic;
+output: OUT std_logic);
+
+END portaInversora;
+
+ARCHITECTURE inv OF portInversora IS
+
+BEGIN
+	output <= NOT input;
+END inv;

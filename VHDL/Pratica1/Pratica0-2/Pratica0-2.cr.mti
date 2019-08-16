@@ -1,0 +1,78 @@
+C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaOr.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaOr.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity portaOr
+-- Compiling architecture por of portaOr
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaInversora.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaInversora.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity portaInversora
+-- Compiling architecture inv of portaInversora
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd2.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd2.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity portaAnd2
+-- Compiling architecture and2 of portaAnd2
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Encode4x2
+-- Compiling architecture enc42 of Encode4x2
+-- Loading entity portaOr
+-- Loading entity portaAnd2
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd3.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/portaAnd3.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity portaAnd3
+-- Compiling architecture and3 of portaAnd3
+-- Loading entity portaAnd2
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2viaCodConc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Encode4x2viaCodConc.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Encode4x2cod
+-- Compiling architecture enc42cod of Encode4x2cod
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4viaCodigoConc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4viaCodigoConc.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Decode2x4Cod
+-- Compiling architecture dec24cod of Decode2x4Cod
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/cidsa/Documents/UFC/VHDL/Pratica0-2/Decode2x4.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Decode2x4
+-- Compiling architecture dec24 of Decode2x4
+-- Loading entity portaInversora
+-- Loading entity portaAnd3
+
+} {} {}}

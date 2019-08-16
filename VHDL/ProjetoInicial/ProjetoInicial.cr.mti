@@ -1,0 +1,28 @@
+C:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial/dff.vhd {1 {vcom -work work -2002 -explicit C:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial/dff.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 17:21:43 on May 13,2016
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial/dff.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dff
+-- Compiling architecture not_ok of dff
+-- Compiling architecture ok of dff
+-- Loading entity dff
+End time: 17:21:43 on May 13,2016, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial/dff_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial/dff_tb.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 17:21:44 on May 13,2016
+vcom -reportprogress 300 -work work -2002 -explicit C:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial/dff_tb.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dff_tb
+-- Compiling architecture teste of dff_tb
+-- Loading entity dff
+End time: 17:21:44 on May 13,2016, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}}

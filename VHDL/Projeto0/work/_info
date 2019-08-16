@@ -1,0 +1,174 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/cidsa/Documents/UFC/VHDL/ProjetoInicial
+Einversor
+Z0 w1463601364
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/cidsa/Documents/UFC/VHDL/Projeto1
+Z5 8C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/inversor.vhd
+Z6 FC:/Users/cidsa/Documents/UFC/VHDL/Projeto1/inversor.vhd
+l0
+L5
+V0fIdb;zWI9FK882e<H4f^0
+!s100 :Ag<I:E?kW82?kW9g^2hj1
+Z7 OP;C;10.4a;61
+32
+Z8 !s110 1463601368
+!i10b 1
+Z9 !s108 1463601368.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/inversor.vhd|
+Z11 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/inversor.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+Ainv
+R1
+R2
+R3
+DEx4 work 8 inversor 0 22 0fIdb;zWI9FK882e<H4f^0
+l14
+L12
+VjRgN87=;B^J5jKb5NIhoo1
+!s100 QXJSH3Jkl9g32e:S6bkM[2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Emain
+Z14 w1463603184
+R1
+R2
+R3
+R4
+Z15 8C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/main.vhd
+Z16 FC:/Users/cidsa/Documents/UFC/VHDL/Projeto1/main.vhd
+l0
+L5
+VNnah^K[:]d;V:jL6SndN^3
+!s100 zToZ^27Se?V3J4`U^i2M@2
+R7
+32
+Z17 !s110 1463603192
+!i10b 1
+Z18 !s108 1463603192.000000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/main.vhd|
+Z20 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/main.vhd|
+!i113 1
+R12
+R13
+Amymain
+R1
+R2
+R3
+DEx4 work 4 main 0 22 Nnah^K[:]d;V:jL6SndN^3
+l13
+L12
+VS@Q1N2HcC3a^T^Ujjoh;C2
+!s100 RhSn<GZR8T;CZ8CGcTJIG2
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13
+Eportaand
+Z21 w1463601491
+R1
+R2
+R3
+R4
+Z22 8C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/and.vhd
+Z23 FC:/Users/cidsa/Documents/UFC/VHDL/Projeto1/and.vhd
+l0
+L5
+VQ:ab23MUCBZ9iaEbkEzzo3
+!s100 KH6Fo0:nlS=X46U9[:Nl>0
+R7
+32
+Z24 !s110 1463601496
+!i10b 1
+Z25 !s108 1463601496.000000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/and.vhd|
+Z27 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/and.vhd|
+!i113 1
+R12
+R13
+Apand
+R1
+R2
+R3
+DEx4 work 8 portaand 0 22 Q:ab23MUCBZ9iaEbkEzzo3
+l14
+L12
+V<IVWb;iKi73id@K6KICi`2
+!s100 iboU>MDGD41Eb6?9Cb31C1
+R7
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12
+R13
+Eportaor
+Z28 w1463601710
+R1
+R2
+R3
+R4
+Z29 8C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/or.vhd
+Z30 FC:/Users/cidsa/Documents/UFC/VHDL/Projeto1/or.vhd
+l0
+L5
+VjPSGS=^OX07WUWLej1Q8H2
+!s100 KHKYhMMTd]RQj@8JnJU>M2
+R7
+32
+Z31 !s110 1463601718
+!i10b 1
+Z32 !s108 1463601718.000000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/or.vhd|
+Z34 !s107 C:/Users/cidsa/Documents/UFC/VHDL/Projeto1/or.vhd|
+!i113 1
+R12
+R13
+Apor
+R1
+R2
+R3
+DEx4 work 7 portaor 0 22 jPSGS=^OX07WUWLej1Q8H2
+l14
+L12
+VkgzSOCYF<NRlnz?K>`TYT3
+!s100 H@]5R=2YATA5JT<_o_e2<1
+R7
+32
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 1
+R12
+R13
