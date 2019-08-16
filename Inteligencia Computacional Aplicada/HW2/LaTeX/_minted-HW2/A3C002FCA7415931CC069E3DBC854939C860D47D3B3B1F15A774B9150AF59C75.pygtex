@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	ridgeGrid \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{data.frame}\PYG{p}{(}\PYG{l+m}{.}lambda \PYG{o}{=} \PYG{k+kp}{seq}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,} \PYG{l+m}{.1}\PYG{p}{,} length \PYG{o}{=} \PYG{l+m}{15}\PYG{p}{))}
+	\PYG{k+kp}{set.seed}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{)}
+	ridgeRegFit \PYG{o}{\PYGZlt{}\PYGZhy{}} train\PYG{p}{(}solTrainXtrans\PYG{p}{,} solTrainY\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}ridge\PYGZdq{}}\PYG{p}{,} tuneGrid \PYG{o}{=} ridgeGrid\PYG{p}{,} trControl \PYG{o}{=} fold10\PYG{p}{,}preProc \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}center\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}scale\PYGZdq{}}\PYG{p}{))}
+	ridgeRegFit
+	plot\PYG{p}{(}ridgeRegFit\PYG{p}{,} xlab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Penalty\PYGZdq{}}\PYG{p}{,} ylab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}RMSE (Cross Validation)\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

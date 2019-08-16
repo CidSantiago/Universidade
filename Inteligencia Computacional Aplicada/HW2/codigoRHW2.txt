@@ -1,0 +1,84 @@
+library(AppliedPredictiveModeling);
+library(e1071);
+library(corrplot);
+library(caret);
+library(elasticnet);
+library(pls);
+
+data(solubility);
+
+## Parte 0
+skew <- apply(solTrainX[209:228],2,skewness);
+
+print(paste("Média da skewness: ",mean(skew)))
+print(paste("Máximo valor da skewness: ",max(skew)))
+print(paste("Minimo valor da skewness: ",min(skew)))
+
+correlation <- cor(cbind(solTrainXtrans[209:228],solTrainY));
+corrplot(correlation, order = "hclust", mar = c(1,1,1,1))
+corrplot(correlation, order = "hclust", mar = c(1,1,1,1), method = "number", number.cex = .8)
+
+## Parte 1
+
+
+corThresh <- .9;
+tooHigh <- findCorrelation(cor(solTrainXtrans), corThresh);
+corrPred <- names(solTrainXtrans)[tooHigh];
+length(tooHigh)
+corrPred
+
+trainXfiltered <- solTrainXtrans[, -tooHigh];
+testXfiltered <- solTestXtrans[, -tooHigh];
+
+set.seed(200)
+trainingData <- trainXfiltered
+trainingData$solubility <- solTrainY
+
+lmFiltered <-lm(solubility ~ ., data = trainingData)
+lmPred1 <- predict(lmFiltered, testXfiltered)
+
+lmValues1 <- data.frame(obs = solTestY, pred = lmPred1)
+defaultSummary(lmValues1)
+
+#fold5 <- trainControl(method = "cv", number = 5);
+fold10 <- trainControl(method = "cv", number = 10);
+
+#lmTrain5 <- train(trainXfiltered, solTrainY, method = "lm", trControl = fold5);
+lmTrain10 <- train(trainXfiltered, solTrainY, method = "lm", trControl = fold10);
+lmTrain10
+
+#plotlm5ob<-xyplot(solTestY ~ predict(lmTrain5, testXfiltered), type = c("p", "g"), xlab = "Predicted", ylab = "Observed", col = "red")
+#plotlm5re<-xyplot(resid(lmTrain5) ~ predict(lmTrain5,testXfiltered), type = c("p", "g"), xlab = "Predicted", ylab = "Residuals", col = "red")
+
+plotlm10ob<-xyplot(solTestY ~ predict(lmTrain10,testXfiltered), type = c("p", "g"), xlab = "Predicted", ylab = "Observed", col = "blue")
+plotlm10re<-xyplot(resid(lmTrain10) ~ predict(lmTrain10,testXfiltered), type = c("p", "g"), xlab = "Predicted", ylab = "Residuals", col = "blue")
+
+#print(plotlm5ob, pos = c(0.0, 0.5, 0.5, 1), more = TRUE) 
+#print(plotlm5re, pos = c(0.5, 0.5, 1, 1.0), more = TRUE) 
+#print(plotlm10ob, pos = c(0.0, 0.0, 0.5, 0.5), more = TRUE) 
+#print(plotlm10re, pos = c(0.5, 0.0, 1.0, 0.5), more = FALSE) 
+
+print(plotlm10ob, pos = c(0.0,0.0,0.5,1), more = TRUE)
+print(plotlm10re, pos = c(0.5,0.0,1,1), more = FALSE)
+
+##Parte 2
+
+ridgeGrid <- data.frame(.lambda = seq(0, .1, length = 15))
+set.seed(200)
+ridgeRegFit <- train(solTrainXtrans, solTrainY, method = "ridge", tuneGrid = ridgeGrid, trControl = fold10,preProc = c("center", "scale"))
+ridgeRegFit
+plot(ridgeRegFit, xlab = "Penalty", ylab = "RMSE (Cross Validation)")
+
+lmRidgePred <- predict(ridgeRegFit, solTestXtrans)
+ridge.df <- data.frame(pred = lmRidgePred, obs = solTestY)
+defaultSummary(ridge.df)
+
+##Parte 3
+
+set.seed(200)
+plsTune <- train(solTrainXtrans, solTrainY, method = "pls", tuneLength = 25, trControl = fold10, preProc = c("center", "scale"))
+plot(plsTune, xlab = "Number of components", ylab = "RMSE (Cross Validation)")
+
+plsPred <- predict(plsTune, solTestXtrans)
+pls.df <- data.frame(pred = plsPred, obs = solTestY)
+defaultSummary(pls.df)

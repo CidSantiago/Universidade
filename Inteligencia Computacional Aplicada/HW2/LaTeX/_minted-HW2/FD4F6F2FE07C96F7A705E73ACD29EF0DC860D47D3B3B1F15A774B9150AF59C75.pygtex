@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	fold10 \PYG{o}{\PYGZlt{}\PYGZhy{}} trainControl\PYG{p}{(}method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}cv\PYGZdq{}}\PYG{p}{,} number \PYG{o}{=} \PYG{l+m}{10}\PYG{p}{);}
+
+	lmTrain10 \PYG{o}{\PYGZlt{}\PYGZhy{}} train\PYG{p}{(}trainXfiltered\PYG{p}{,} solTrainY\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}lm\PYGZdq{}}\PYG{p}{,} trControl \PYG{o}{=} fold10\PYG{p}{);}
+	lmTrain10
+
+	plotlm10ob\PYG{o}{\PYGZlt{}\PYGZhy{}}xyplot\PYG{p}{(}solTestY \PYG{o}{\PYGZti{}} predict\PYG{p}{(}lmTrain10\PYG{p}{,}testXfiltered\PYG{p}{),} type \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}p\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}g\PYGZdq{}}\PYG{p}{),} xlab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Predicted\PYGZdq{}}\PYG{p}{,} ylab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Observed\PYGZdq{}}\PYG{p}{,} col \PYG{o}{=} \PYG{l+s}{\PYGZdq{}blue\PYGZdq{}}\PYG{p}{)}
+	plotlm10re\PYG{o}{\PYGZlt{}\PYGZhy{}}xyplot\PYG{p}{(}resid\PYG{p}{(}lmTrain10\PYG{p}{)} \PYG{o}{\PYGZti{}} predict\PYG{p}{(}lmTrain10\PYG{p}{,}testXfiltered\PYG{p}{),} type \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}p\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}g\PYGZdq{}}\PYG{p}{),} xlab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Predicted\PYGZdq{}}\PYG{p}{,} ylab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Residuals\PYGZdq{}}\PYG{p}{,} col \PYG{o}{=} \PYG{l+s}{\PYGZdq{}blue\PYGZdq{}}\PYG{p}{)}
+
+	\PYG{k+kp}{print}\PYG{p}{(}plotlm10ob\PYG{p}{,} pos \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{0.0}\PYG{p}{,}\PYG{l+m}{0.0}\PYG{p}{,}\PYG{l+m}{0.5}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{),} more \PYG{o}{=} \PYG{k+kc}{TRUE}\PYG{p}{)}
+	\PYG{k+kp}{print}\PYG{p}{(}plotlm10re\PYG{p}{,} pos \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{0.5}\PYG{p}{,}\PYG{l+m}{0.0}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{),} more \PYG{o}{=} \PYG{k+kc}{FALSE}\PYG{p}{)}
+\end{Verbatim}

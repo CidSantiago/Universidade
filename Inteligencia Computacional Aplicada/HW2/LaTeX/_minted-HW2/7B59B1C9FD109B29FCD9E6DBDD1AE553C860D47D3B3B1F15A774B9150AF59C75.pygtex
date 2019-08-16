@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Find the predictors that are not fingerprints}
+	contVars \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{names}\PYG{p}{(}solTrainX\PYG{p}{)[}\PYG{o}{!}\PYG{k+kp}{grepl}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}FP\PYGZdq{}}\PYG{p}{,} \PYG{k+kp}{names}\PYG{p}{(}solTrainX\PYG{p}{))]}
+
+	\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Some have zero values, so we need to add one to them so that}
+	\PYG{c+c1}{\PYGZsh{}\PYGZsh{} we can use the Box\PYGZhy{}Cox transformation.}
+	contPredTrain \PYG{o}{\PYGZlt{}\PYGZhy{}} solTrainX\PYG{p}{[,}contVars\PYG{p}{]} \PYG{o}{+} \PYG{l+m}{1}
+	contPredTest \PYG{o}{\PYGZlt{}\PYGZhy{}} solTestX\PYG{p}{[,}contVars\PYG{p}{]} \PYG{o}{+} \PYG{l+m}{1}
+
+	pp \PYG{o}{\PYGZlt{}\PYGZhy{}} preProcess\PYG{p}{(}contPredTrain\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}BoxCox\PYGZdq{}}\PYG{p}{)}
+	contPredTrain \PYG{o}{\PYGZlt{}\PYGZhy{}} predict\PYG{p}{(}pp\PYG{p}{,} contPredTrain\PYG{p}{)}
+	contPredTest \PYG{o}{\PYGZlt{}\PYGZhy{}} predict\PYG{p}{(}pp\PYG{p}{,} contPredTest\PYG{p}{)}
+
+	\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Reassemble the fingerprint data with the transformed values.}
+	trainXtrans \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{cbind}\PYG{p}{(}solTrainX\PYG{p}{[,}\PYG{k+kp}{grep}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}FP\PYGZdq{}}\PYG{p}{,} \PYG{k+kp}{names}\PYG{p}{(}solTrainX\PYG{p}{))],} contPredTrain\PYG{p}{)}
+	testXtrans \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{cbind}\PYG{p}{(} solTestX\PYG{p}{[,}\PYG{k+kp}{grep}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}FP\PYGZdq{}}\PYG{p}{,} \PYG{k+kp}{names}\PYG{p}{(}solTestX\PYG{p}{))],} contPredTest\PYG{p}{)}
+\end{Verbatim}

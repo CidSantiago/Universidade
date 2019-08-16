@@ -1,0 +1,1152 @@
+?merge#
+merge(glass.type, tmp_type, by = intersect(names(glass.type), names(tmp_type)))#
+?merge#
+rm(list=ls())#
+library(e1071)#
+library(caret)#
+#
+library(mlbench); data(Glass);#
+type1<-subset(Glass,Glass$Type==1)#
+type1#
+type2<-subset(Glass,Glass$Type==2)#
+type2#
+type <- Glass$Type#
+type#
+factor(Glass$Type)#
+glass_sampling_vector <- createDataPartition(glass$Type, p =0.80, list = FALSE)#
+glass_sampling_vector <- createDataPartition(Glass$Type, p =0.80, list = FALSE)#
+glass_sampling_vector#
+glass_sampling_vector <- createDataPartition(Glass$Type, list = FALSE)#
+glass_sampling_vector#
+#
+glass_sampling_vector <- createDataPartition(Glass$Type)#
+glass_sampling_vector#
+#
+?createDataPartition#
+glass_sampling_vector <- createDataPartition(Glass$Type==1)#
+glass_sampling_vector#
+split(Glass,Glass$Type)#
+type<-split(Glass,Glass$Type)#
+type$1#
+type#
+type$1#
+type$'1'#
+glass.type <- split(Glass,Glass$Type)#
+glass.type$'1'#
+mean(glass.type$'1')#
+#
+table(glass.type$'1')#
+table(glass.type$1)#
+table(glass.type$'1')#
+?mean#
+glass.type$'1'[1:9]#
+mean(glass.type$'1'[1:9])#
+?mean#
+colMeans(glass.type$'1'[1:9])#
+colstd(glass.type$'1'[1:9])#
+i<-1#
+colMeans(glass.type$'i'[1:9])#
+colMeans(glass.type$'[i]'[1:9])#
+colNames = colnames(Glass)#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type)#
+}#
+n <-length(Glass)	#
+#
+## Univariate#
+## Plot the data in a subplot figure#
+colNames = colnames(Glass)#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type)#
+}#
+glassp#
+mean(Glass[i])#
+mean(Glass[][i]])#
+mean(Glass[[i]])#
+i#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type)#
+  line(mean(Glass[[i]]))#
+}#
+?line#
+line(mean(Glass[[i]]))#
+abline(mean(Glass[[i]]))#
+colNames = colnames(Glass)#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type)#
+}#
+#
+quartz()#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main=colNames[i],xlab='')#
+}#
+uniglass <- Glass[,1:9]#
+mystats <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- mean(x)#
+	     n <- length(x)#
+	     s <- sd(x)#
+	     skew <- sum((x-m)^3/s^3)/n # skewness(x)#
+	     return(c(mean=round(m,3), stdev=round(s,3), skew=round(skew,3),n=n))#
+}#
+#
+sapply(uniglass,mystats)#
+uniglass <- Glass[,1:9]#
+mystats <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- mean(x)#
+	     n <- length(x)#
+	     s <- sd(x)#
+	     skew <- sum((x-m)^3/s^3)/n # skewness(x)#
+	     return(c(mean=round(m,3), stdev=round(s,3), skew=round(skew,3),n=n))#
+}#
+#
+mystats_table<-sapply(uniglass,mystats)#
+mystats_table#
+library(xtable)#
+xtable(mystats_table)#
+for(i in 1:9){#
+glassc = subset(Glass, Type == Glass$Type, select=names(Glass[,1:9]))#
+colMeans(glassc)#
+}#
+glassc#
+colMeans(glassc)#
+colSds(glassc)#
+apply(glassc, 2, sd)#
+apply(glassc, sd)#
+mystats_class <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- colMeans(x)#
+	     s <- apply(x,2,sd)#
+	     return(c(mean=round(m,3), stdev=round(s,3)))#
+}#
+#
+mystats_class_table<-sapply(glassc,mystats_class)#
+mystats_class <- function(x,na.omit=FALSE,print=TRUE){#
+	     m <- colMeans(x)#
+	     s <- apply(x,2,sd)#
+	     return(c(mean=round(m,3), stdev=round(s,3)))#
+}#
+#
+mystats_class_table<-sapply(glassc,mystats_class)#
+traceback()#
+debug(mystats_class)#
+debug(mystats_class_table)#
+debug(mystats_class)#
+#
+mystats_class <- function(x,na.omit=FALSE,print=TRUE){#
+	     m <- colMeans(x)#
+	     s <- apply(x,2,sd)#
+	     return(c(mean=round(m,3), stdev=round(s,3)))#
+}#
+#
+mystats_class_table<-sapply(glassc,mystats_class)#
+#
+glassc#
+debug(mystats_class)#
+sapply(glassc,mystats_class)#
+#
+m#
+x#
+undebug(mystats_class)#
+c#
+sapply(glassc,mystats_class)#
+glassc#
+sapply(glassc,mystats)#
+mystats_table#
+uniglass#
+glass.type <- split(Glass,Glass$Type)#
+glass.type#
+sapply(glass.type,mean)#
+sapply(glass.type$'1',mean)#
+sapply(glass.type$'1'[1:9],mean)#
+sapply(glass.type$'1'[1:n-1],mean)#
+#
+sapply(glass.type$'1'[1:(n-1)],mean)#
+#
+sapply(glass.type$'1'[1:(n-1)],std)#
+?sapply#
+ggplot(data = Glass, aes(Ri, Na), fill=ToG) + geom_point(aes(colour = factor(ToG))) + labs(colour = "Type of Glasse")#
+rm(list=ls)#
+rm(list=ls())#
+library(caret)#
+#
+library(mlbench); data(Glass); #
+rm(list=ls())#
+library(ISLR)#
+library(pls)#
+?College#
+data(College)#
+ls()#
+College$Private#
+help(ISLR)#
+    summary(College)#
+library(mlbench); data(Glass); #
+?Glass#
+mean#
+rm(list=ls())#
+library(e1071)#
+library(caret)#
+#
+library(mlbench); data(Glass); #
+summary(Glass)#
+uniglass <- Glass[,1:9]#
+mystats <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- mean(x)#
+	     n <- length(x)#
+	     s <- sd(x)#
+	     skew <- sum((x-m)^3/s^3)/n # skewness(x)#
+	     return(c(mean=round(m,3), stdev=round(s,3), skew=round(skew,3),n=n))#
+}#
+#
+mystats_table<-sapply(uniglass,mystats)#
+library(xtable)#
+xtable(mystats_table)#
+str(Glass)#
+xstrtable <- str(Glass)#
+xtable(mystats_table)#
+xtable(xstrtable)#
+n <-length(Glass)	#
+#
+## Univariate#
+## Plot the data in a subplot figure#
+colNames = colnames(Glass)#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type)#
+}#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type)#
+}#
+?plot#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type,xaxs="i")#
+}#
+par(mfrow=c(1,3))#
+for( i in 1:3) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type,xaxs="i")#
+}#
+par(mfrow=c(3,1))#
+for( i in 1:3) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type,xaxs="i")#
+}#
+par(mfrow=c(1,3))#
+for( i in 1:3) {#
+  glassp=plot(Glass[[i]], main=colNames[i],xlab="Observations",ylab='',col=Glass$Type,xaxs="i")#
+}#
+#
+uniglass <- Glass[,1:9]#
+mystats <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- mean(x)#
+	     n <- length(x)#
+	     s <- sd(x)#
+	     skew <- sum((x-m)^3/s^3)/n # skewness(x)#
+	     return(c(mean=round(m,4), stdev=round(s,4), skew=round(skew,4),n=n))#
+}#
+#
+mystats_table<-sapply(uniglass,mystats)#
+library(xtable)#
+xtable(mystats_table)#
+mystats_table#
+colNames#
+par(mfrow=c(1,3))#
+for( i in 1:3) {#
+  glassp=plot(Glass[[i]],xlab="Observations",ylab=colNames[i],col=Glass$Type,xaxs="i")#
+}#
+#
+par(mfrow=c(3,3))#
+for( i in 1:3) {#
+  glassp=plot(Glass[[i]],xlab="Observations",ylab=colNames[i],col=Glass$Type,xaxs="i")#
+}#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassp=plot(Glass[[i]],xlab="Observations",ylab=colNames[i],col=Glass$Type,xaxs="i")#
+}#
+quartz()#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main=colNames[i],xlab='')#
+}#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main=colNames[i],xlab='',col=Glass$Type)#
+}#
+palette()#
+quartz()#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='',xlab=colNames[i],col='gray')#
+}#
+#
+par(mfrow = c(3,3), mar= c(3, 4, 1, 1) + 0.1)#
+#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='',xlab=colNames[i],col='gray')#
+}#
+#
+par(mfrow = c(3,3), mar= c(3, 4, 1, 1))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='',xlab=colNames[i],col='gray')#
+}#
+#
+par(mfrow = c(3,3), mar= c(3, 4, 1, 1))#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,4,1,1)+0.5)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,4,1,1)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,4,1,1)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,4,0.5,1)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,4,0.5,0.5)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+0.5)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+0.5)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+0.75)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+0.8)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray')#
+}#
+par(mfrow=c(3,3), mar=c(3,3,0.5,0.5)+1)#
+for( i in 1:(n-1)) {#
+  glassh=hist(Glass[[i]], main='', xlab=colNames[i],col='gray',cex=0.1)#
+}#
+?plot#
+for(i in 1:9){#
+glassc = subset(Glass, Type == Glass$Type, select=names(Glass[,1:9]))#
+}#
+glassc#
+split(Glass,Glass$Type)#
+as.matrix(split(Glass,Glass$Type))#
+glass_class <- split(Glass,Glass$Type)#
+glass_class$'1'#
+as.matrix(glass_class$'1')#
+mean(as.matrix(glass_class$'1'))#
+colMeans(glass_class$'1')#
+colMeans(glass_class$'1'[,1:9])#
+apply(glass_class$'1',std)#
+apply(glass_class$'1',2,std)#
+?apply#
+apply(glass_class$'1',2,sd)#
+apply(glass_class$'1',2,skewness)#
+apply(glass_class$'1'[,1:9],2,skewness)#
+apply(glass_class$'1'[,1:9],2,mean)#
+glass_class$'1'#
+(glass_class$'1'[,1:9])#
+as.matrix(glass_class$'1'[,1:9])#
+x<-as.matrix(glass_class$'1'[,1:9])#
+x#
+#
+mystatsc <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- apply(x,2,mean)#
+	     s <- apply(x,2,sd)#
+	     skew <- apply(x,2,skewness)#
+	     return(c(meanc=round(m,4), stdevc=round(s,4), skewc=round(skew,4)))#
+}#
+#
+#
+mystats_class_table<-sapply(x,mystatsc)#
+debug(mystatsc)#
+mystats_class_table<-sapply(x,mystatsc)#
+x#
+c#
+debug(mystatsc)#
+mystatsc <- function(x,na.omit=FALSE,print=TRUE){#
+	     m <- apply(x,2,mean)#
+	     s <- apply(x,2,sd)#
+	     skew <- apply(x,2,skewness)#
+	     return(c(meanc=round(m,4), stdevc=round(s,4), skewc=round(skew,4)))#
+}#
+#
+#
+mystats_class_table<-sapply(x,mystatsc)#
+debug(mystatsc)#
+mystats_class_table<-sapply(x,mystatsc)#
+x#
+c#
+x#
+uniglass#
+debug(mystats)#
+#
+mystats_table<-sapply(uniglass,mystats)#
+#
+x#
+c#
+x#
+c#
+x#
+c#
+cc#
+c#
+mystats_class_table<-apply(x,mystatsc)#
+mystatsc <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- apply(x,2,mean)#
+	     s <- apply(x,2,sd)#
+	     skew <- apply(x,2,skewness)#
+	     return(c(meanc=round(m,4), stdevc=round(s,4), skewc=round(skew,4)))#
+}#
+#
+#
+mystats_class_table<-apply(x,mystatsc)#
+?apply#
+mystatsc <- function(x,na.omit=FALSE,print=TRUE){#
+	     if (na.omit) x<-x[!is.na(x)]#
+	     m <- apply(x,2,mean)#
+	     s <- apply(x,2,sd)#
+	     skew <- apply(x,2,skewness)#
+	     return(c(meanc=round(m,4), stdevc=round(s,4), skewc=round(skew,4)))#
+}#
+#
+#
+mystats_class_table<-lapply(x,mystatsc)#
+debug(mystatsc)#
+mystats_class_table<-lapply(x,mystatsc)#
+x#
+c#
+mystats_class_table<-lapply(x,mystatsc,simplify = FALSE, USE.NAMES = FALSE)#
+#
+mystats_class_table<-sapply(x,mystatsc,simplify = FALSE, USE.NAMES = FALSE)#
+#
+#
+x#
+c#
+mystats_class_table<-mystatsc(x)#
+#
+x#
+c#
+mystats_class_table<-mystatsc(x)#
+c#
+undebug(mystatsc)#
+mystats_class_table<-mystatsc(x)#
+mystats_class_table#
+mystats_class_table<-mystatsc(x,print=TRUE)#
+mystats_class_table#
+as.matrix(glassbyclass$['i']#
+#
+as.matrix(glassbyclass$'[i]'#
+#
+)#
+glassbyclass <- split(Glass,Glass$Type)#
+#
+as.matrix(glassbyclass$'[i]')#
+i#
+library(reshape2)#
+meltedGlass <- melt(Glass, id.vars = "Type")#
+head(meltedGlass)#
+meltedGlass#
+hist(meltedGlass$Type)#
+hist(meltedGlass)#
+densityplot(~value|variable, #
+            data = meltedGlass, #
+            ## Adjust each axis so that the measurement scale is#
+            ## different for each panel#
+            scales = list(x = list(relation = "free"), #
+                          y = list(relation = "free")),#
+            ## 'adjust' smooths the curve out#
+            adjust = 1.25, #
+            ## change the symbol on the rug for each data point#
+            pch = "|",#
+            xlab = "Predictor")#
+colNames = colnames(Glass)#
+for( i in 1:9) {#
+  ggplot(Glass, aes(x = log(Glass[[i]]))) +#
+  geom_histogram(bins = trunc(length(Glass[[i]])/2)) +#
+  ggtitle(paste0("Histogram of Log of: ", colNames[i]), sub = paste("Skew = ",  round(skewness(Glass[[i]]) , 3) ))   #
+  #theme_economist()#
+  #print(gg)#
+}#
+#
+for( i in c(6, 9)) {#
+  gg = ggplot(Glass, aes(x = log(Glass[[i]]))) +#
+  geom_histogram(bins = trunc(length(Glass[[i]])/2)) +#
+  ggtitle(paste0("Histogram of Log of: ", colNames[i]), sub = paste("Skew = ", round(skewness(Glass[[i]]) , 3) )) #
+  print(gg)#
+}#
+response = Glass$Type#
+GlassMinResp = Glass[,-ncol(Glass)]#
+#
+pcaObj = preProcess(GlassMinResp,#
+                    method = c("BoxCox", "center", "scale", "pca"))#
+#
+transformed = predict(pcaObj, GlassMinResp)#
+transformed$Type = response#
+transformed#
+plot(transformed)#
+splom(~ transformed, pch = 16, col = Glass$Type, cex = .7)#
+splom(~transformed[,10], pch = 16, col = Glass$Type, cex = .7)#
+splom(~transformed[,1:9], pch = 16, col = Glass$Type, cex = .7)#
+splom(~transformed[,7], pch = 16, col = Glass$Type, cex = .7)#
+splom(~transformed[,8], pch = 16, col = Glass$Type, cex = .7)#
+splom(transformed[,1:7], pch = 16, col = Glass$Type, cex = .7)#
+nearZeroVar(transformed)#
+#
+library(corrplot)#
+#
+correlations = cor(Glass[,-ncol(Glass)])#
+corrplot(correlations, order = "hclust")#
+centerScale <- preProcess(Glass[, -10], method = c("center", "scale"))#
+csData <- predict(centerScale, newdata = Glass[, -10])#
+ssData <- spatialSign(csData)#
+splom(~ssData, pch = 16, col = Glass$Type, cex = .7)#
+react.time<-c(5.6, 6.8, 7.8,  8.8, 5.6, 7.0, 8.0, 10.2, 5.6, 7.0, 8.0, 10.2, 5.8, 7.2, 8.2, 10.2, 5.8, 7.2, 8.2, 10.2, 6.6, 7.4, 8.4, 10.2)#
+sort(react.time)#
+#
+hist(react.time,c(5,6.6,7.4,8.4,10.2)) # unimodale#
+table(cut(react.time,c(5,6.6,7.4,8.4,10.2)))#
+#
+N<-4 # Number of classes#
+react.factor<-factor(c('short','mean_short','mean_long','long'))#
+react.class<-split(react.time,react.factor)#
+#
+par(mfrow=c(2,2))#
+plot(table(react.class$short))#
+plot(table(react.class$mean_short))#
+plot(table(react.class$mean_long))#
+plot(table(react.class$long))#
+#
+table(react.class)#
+table(react.class$short)#
+summary(react.class$short)#
+summary(react.class$long)#
+rm(list=ls())#
+q()#
+rm(list=ls())#
+#
+library(caret)#
+library(AppliedPredictiveModeling)#
+data(solubility)#
+ls()#
+head(solTrainX)#
+q()#
+
+library(nnet)#
+#
+library(mlbench)#
+data(BostonHousing)#
+#
+# inspect the range which is 1-50#
+summary(BostonHousing$medv)#
+
+lm.fit <- lm(medv ~ ., data=BostonHousing)#
+
+lm.predict <- predict(lm.fit)#
+
+mean((lm.predict - BostonHousing$medv)^2) #
+
+plot(BostonHousing$medv, lm.predict,#
+     main="Linear regression predictions vs actual",#
+     xlab="Actual")#
+
+require(nnet)#
+
+nnet.fit <- nnet(medv/50 ~ ., data=BostonHousing, size=10, #
+                 inout=TRUE, skip=TRUE, MaxNWts=10000, trace=FALSE, maxit=100)#
+
+nnet.predict <- predict(nnet.fit)*50 #
+
+mean((nnet.predict - BostonHousing$medv)^2)#
+
+plot(BostonHousing$medv, nnet.predict,#
+     main="Neural network predictions vs actual",#
+     xlab="Actual")#
+
+#
+rm(list=ls())#
+#
+library(caret)#
+library(AppliedPredictiveModeling)#
+data(solubility)#
+
+summary(solubility)#
+
+ls()#
+
+getwd()#
+
+setwd('../TI0077/assessment/homework/HW2/code/data/')#
+
+?write.csv#
+
+ls()#
+
+write.csv(solTrainX,'solTrainX')#
+
+write.csv(solTrainX,'solTrainX.csv')#
+#
+
+write.table(solTrainX,'solTrainX.csv',row.names=F)#
+
+solTrainX#
+
+write.table(solTrainX,'solTrainX.csv',row.names=F,sep,'')#
+
+write.csv(solTrainX, file = "solTrainX.csv", row.names = FALSE)#
+
+read.csv('solTrainX.csv')#
+
+ls()#
+
+write.csv(solTestX, file = "solTestX.csv", row.names = FALSE)#
+
+write.csv(solTestXtrans, file = "solTrainXtrans.csv", row.names = FALSE)#
+
+write.csv(solTestXtrans, file = "solTestXtrans.csv", row.names = FALSE)#
+
+write.csv(solTestY, file = "solTestY.csv", row.names = FALSE)#
+
+write.csv(solTrainY, file = "solTrainY.csv", row.names = FALSE)#
+
+ls()#
+
+summary(solTrainX)#
+
+trainingData <- solTrainXtrans#
+
+trainingData$Solubility <- solTrainY#
+#
+
+lmFitAllPredictors <- lm(Solubility ~ ., data = trainingData)#
+
+summary(lmFitAllPredictors)#
+
+lmPred1 <- predict(lmFitAllPredictors, solTestXtrans)#
+
+head(lmPred1)#
+
+plot(lmPred1, solTestY)#
+plot(lmPred1)#
+par(new=TRUE)#
+plot(solTestY,col='red')#
+
+lmValues1 <- data.frame(obs = solTestY, pred = lmPred1)#
+
+defaultSummary(lmValues1)#
+
+ctrl <- trainControl(method = "cv", number = 10)#
+
+set.seed(100) # The random number seed is set prior to modeling so that the results can be reproduced. #
+
+lmFit1 <- train(x = solTrainXtrans, y = solTrainY, method = "lm", trControl = ctrl)#
+
+lmFit1#
+
+xyplot(solTrainY ~ predict(lmFit1), type = c("p", "g"), xlab = "Predicted", ylab = "Observed")#
+
+xyplot(resid(lmFit1) ~ predict(lmFit1), type = c("p", "g"), xlab = "Predicted", ylab = "Residuals")#
+
+library(glmnet)#
+x.train <- as.matrix(solTrainXtrans)#
+y.train <- solTrainY #
+
+fit.lasso <- glmnet(x.train, y.train, alpha=1)#
+fit.ridge <- glmnet(x.train, y.train, alpha=0)#
+fit.elnet <- glmnet(x.train, y.train, alpha=.5)#
+
+for (i in 0:10) {#
+    assign(paste("fit", i, sep=""), cv.glmnet(x.train, y.train, type.measure="mse", #
+                                              alpha=i/10,family="gaussian"))#
+                                              }#
+
+par(mfrow=c(3,2))#
+plot(fit.lasso, xvar="lambda")#
+plot(fit10, main="LASSO")#
+
+)#
+
+par(mfrow=c(3,2))#
+plot(fit.lasso, xvar="lambda")#
+plot(fit10, main="LASSO")#
+
+for (i in 0:10) {#
+    assign(paste("fit", i, sep=""), cv.glmnet(x.train, y.train, type.measure="mse", #
+                                              alpha=i/10,family="gaussian"))#
+                                              }#
+
+par(mfrow=c(3,2))#
+plot(fit.lasso, xvar="lambda")#
+plot(fit10, main="LASSO")#
+#
+plot(fit.ridge, xvar="lambda")#
+plot(fit0, main="Ridge")#
+#
+plot(fit.elnet, xvar="lambda")#
+plot(fit5, main="Elastic Net")#
+
+rm(list=ls())#
+
+getwd()#
+
+read.csv('solTestX.csv')#
+
+soltestX_saved <- read.csv('solTestX.csv')#
+
+library(AppliedPredictiveModeling)#
+data(solubility)#
+
+soltestX_saved-solTestX#
+
+library(nnet)#
+#
+rm(list=ls())#
+#
+library(caret)#
+library(AppliedPredictiveModeling)#
+data(solubility)#
+#
+predictors <- solTrainXtrans#
+## Add the solubility outcome#
+outcome<- solTrainY#
+
+nnetFit <- nnet(predictors, outcome, size = 5, decay = 0.01,#
+				  linout = TRUE,	              ## Reduce the amount of printed output#
+	              trace = FALSE,                  ## Expand the number of iterations to find                  ## parameter estimates..				  maxit = 500,#
+				  ## and the number of parameters used by the model			      MaxNWts = 5 * (ncol(predictors) + 1) + 5 + 1)#
+
+plot(nneFit)#
+
+plot(nnetFit)#
+
+nnetFit$nunits#
+
+nnetFit$wts#
+
+nnetFit$fitted.values#
+
+nnetFit$value#
+
+?nnet#
+
+AND <- c(rep(0,7),1)    OR <- c(0,rep(1,7))    binary.data <- data.frame(expand.grid(c(0,1), c(0,1), c(0,1)), AND, OR)    print(net <- neuralnet(AND+OR~Var1+Var2+Var3,  binary.data, hidden=0,                 rep=10, err.fct="ce", linear.output=FALSE))#
+
+library(neuralnet)#
+
+    AND <- c(rep(0,7),1)    OR <- c(0,rep(1,7))    binary.data <- data.frame(expand.grid(c(0,1), c(0,1), c(0,1)), AND, OR)    print(net <- neuralnet(AND+OR~Var1+Var2+Var3,  binary.data, hidden=0,                 rep=10, err.fct="ce", linear.output=FALSE))#
+
+plot.nn(net)#
+
+rm(list=ls())#
+
+    data(infert, package="datasets")#
+
+ls()#
+
+infert#
+
+?infert#
+
+print(net.infert <- neuralnet(case~parity+induced+spontaneous, infert,                    err.fct="ce", linear.output=FALSE, likelihood=TRUE))    gwplot(net.infert, selected.covariate="parity")    gwplot(net.infert, selected.covariate="induced")    gwplot(net.infert, selected.covariate="spontaneous")#
+
+plot(net.infert)#
+
+X=matrix(c(1,0,1,0,1,0,1,1,0,1,0,1),nrow = 3, ncol=4,byrow = TRUE)#
+
+rm(list=ls)#
+
+rm(list=ls())#
+
+X=matrix(c(1,0,1,0,1,0,1,1,0,1,0,1),nrow = 3, ncol=4,byrow = TRUE)#
+
+X#
+
+Y=matrix(c(1,1,0),byrow=FALSE)#
+
+Y#
+
+sigmoid<-function(x){#
+1/(1+exp(-x))#
+}#
+
+derivatives_sigmoid<-function(x){#
+x*(1-x)#
+}#
+
+epoch=5000#
+
+lr=0.1#
+
+inputlayer_neurons=ncol(X)#
+
+hiddenlayer_neurons=3#
+
+output_neurons=1#
+
+wh=matrix(rnorm(inputlayer_neurons*hiddenlayer_neurons,mean=0,sd=1), inputlayer_neurons, hiddenlayer_neurons)#
+
+wh#
+
+bias_in=runif(hiddenlayer_neurons)#
+
+bias_in#
+
+bias_in_temp=rep(bias_in, nrow(X))#
+
+bias_in_temp#
+
+bh=matrix(bias_in_temp, nrow = nrow(X), byrow = FALSE)#
+
+wout=matrix( rnorm(hiddenlayer_neurons*output_neurons,mean=0,sd=1), hiddenlayer_neurons, output_neurons)#
+
+# input matrix#
+X=matrix(c(1,0,1,0,1,0,1,1,0,1,0,1),nrow = 3, ncol=4,byrow = TRUE)#
+#
+# output matrix#
+Y=matrix(c(1,1,0),byrow=FALSE)#
+#
+#sigmoid function#
+sigmoid<-function(x){#
+1/(1+exp(-x))#
+}#
+#
+# derivative of sigmoid function#
+derivatives_sigmoid<-function(x){#
+x*(1-x)#
+}#
+#
+# variable initialization#
+epoch=5000#
+lr=0.1#
+inputlayer_neurons=ncol(X)#
+hiddenlayer_neurons=3#
+output_neurons=1#
+#
+#weight and bias initialization#
+wh=matrix(rnorm(inputlayer_neurons*hiddenlayer_neurons,mean=0,sd=1), inputlayer_neurons, hiddenlayer_neurons)#
+bias_in=runif(hiddenlayer_neurons)#
+bias_in_temp=rep(bias_in, nrow(X))#
+bh=matrix(bias_in_temp, nrow = nrow(X), byrow = FALSE)#
+wout=matrix( rnorm(hiddenlayer_neurons*output_neurons,mean=0,sd=1), hiddenlayer_neurons, output_neurons)#
+#
+bias_out=runif(output_neurons)#
+bias_out_temp=rep(bias_out,nrow(X))#
+bout=matrix(bias_out_temp,nrow = nrow(X),byrow = FALSE)#
+# forward propagation#
+for(i in 1:epoch){#
+#
+hidden_layer_input1= X%*%wh#
+hidden_layer_input=hidden_layer_input1+bh#
+hidden_layer_activations=sigmoid(hidden_layer_input)#
+output_layer_input1=hidden_layer_activations%*%wout#
+output_layer_input=output_layer_input1+bout#
+output= sigmoid(output_layer_input)#
+#
+# Back Propagation#
+#
+E=Y-output#
+slope_output_layer=derivatives_sigmoid(output)#
+slope_hidden_layer=derivatives_sigmoid(hidden_layer_activations)#
+d_output=E*slope_output_layer#
+Error_at_hidden_layer=d_output%*%t(wout)#
+d_hiddenlayer=Error_at_hidden_layer*slope_hidden_layer#
+wout= wout + (t(hidden_layer_activations)%*%d_output)*lr#
+bout= bout+rowSums(d_output)*lr#
+wh = wh +(t(X)%*%d_hiddenlayer)*lr#
+bh = bh + rowSums(d_hiddenlayer)*lr#
+#
+}#
+output#
+
+wh#
+
+wh=matrix(rnorm(inputlayer_neurons*hiddenlayer_neurons,mean=0,sd=1), inputlayer_neurons, hiddenlayer_neurons)#
+
+wh#
+
+#
+rm(list=ls())#
+graphics.off()#
+
+cat("\014")  #
+
+cat("\f")  #
+
+cat("\033[2J")  # <ESC>[2J  == Clear Screen #
+
+cat(rep("\n",64)) #
+
+rm(list=ls())#
+graphics.off()#
+
+X=matrix(c(1,0,1,0,1,0,1,1,0,1,0,1),nrow = 3, ncol=4,byrow = TRUE)#
+
+Y=matrix(c(1,1,0),byrow=FALSE)#
+
+#
+sigmoid<-function(x){#
+1/(1+exp(-x))#
+}#
+
+derivatives_sigmoid<-function(x){#
+x*(1-x)#
+}#
+
+?activation#
+
+d_activation<-function(x){#
+x*(1-x)#
+}#
+#
+# variable initialization#
+epoch=5000#
+lr=0.1#
+inputlayer_neurons=ncol(X)#
+hiddenlayer_neurons=3#
+output_neurons=1#
+
+hiddenlayer_neurons#
+
+inputlayer_neurons#
+
+rnorm(inputlayer_neurons*hiddenlayer_neurons,mean=0,sd=1)#
+
+inputlayer_neurons#
+
+hiddenlayer_neurons#
+
+wh=matrix(rnorm(inputlayer_neurons*hiddenlayer_neurons,mean=0,sd=1), inputlayer_neurons, hiddenlayer_neurons)#
+bias_in=runif(hiddenlayer_neurons)#
+
+wh#
+
+?runif#
+
+bias_in=runif(hiddenlayer_neurons)#
+
+bias_in#
+
+bias_in=rnorm(hiddenlayer_neurons)#
+
+bias_in#
+
+?runif#
+
+bias_in=runif(hiddenlayer_neurons)#
+
+bias_in#
+
+bias_in_temp=rep(bias_in, nrow(X))#
+
+bias_in_tmp=rep(bias_in, nrow(X))#
+
+bias_in_tmp#
+
+bh=matrix(bias_in_tmp, nrow = nrow(X), byrow = FALSE)#
+
+bh#
+
+option(digits=3)#
+
+options(digits=3)#
+
+bh=matrix(bias_in_tmp, nrow = nrow(X), byrow = FALSE)#
+
+bh#
+
+wout=matrix( rnorm(hiddenlayer_neurons*output_neurons,mean=0,sd=1), hiddenlayer_neurons, output_neurons)#
+
+wout#
+
+bias_out=runif(output_neurons)#
+bias_out_temp=rep(bias_out,nrow(X))#
+bout=matrix(bias_out_temp,nrow = nrow(X),byrow = FALSE)#
+
+browser()#
+
+n#
+
+ls()#
+
+n#
+
+i#
+
+#
+for(i in 1:epoch){#
+browser()#
+hidden_layer_input1= X%*%wh#
+hidden_layer_input=hidden_layer_input1+bh#
+hidden_layer_activations=activation(hidden_layer_input)#
+output_layer_input1=hidden_layer_activations%*%wout#
+output_layer_input=output_layer_input1+bout#
+output= activation(output_layer_input)#
+#
+# Back Propagation#
+#
+E=Y-output#
+slope_output_layer=d_activation(output)#
+slope_hidden_layer=d_activation(hidden_layer_activations)#
+d_output=E*slope_output_layer#
+Error_at_hidden_layer=d_output%*%t(wout)#
+d_hiddenlayer=Error_at_hidden_layer*slope_hidden_layer#
+wout= wout + (t(hidden_layer_activations)%*%d_output)*lr#
+bout= bout+rowSums(d_output)*lr#
+wh = wh +(t(X)%*%d_hiddenlayer)*lr#
+bh = bh + rowSums(d_hiddenlayer)*lr#
+#
+}#
+
+i#
+
+hidden_layer_input1= X%*%wh#
+
+hidden_layer_input1#
+
+X#
+
+wh#
+
+hidden_layer_input=hidden_layer_input1+bh#
+
+hidden_layer_input#
+
+hidden_layer_activations=activation(hidden_layer_input)#
+
+activation<-function(x){#
+1/(1+exp(-x))#
+}#
+
+hidden_layer_activations=activation(hidden_layer_input)#
+
+hidden_layer_activations#
+
+output_layer_input=output_layer_input1+bout#
+
+output= activation(output_layer_input)#
+
+c#
+
+Q#
+
+for(i in 1:epoch){#
+browser()#
+hidden_layer_input1= X%*%wh#
+hidden_layer_input=hidden_layer_input1+bh#
+hidden_layer_activations=activation(hidden_layer_input)#
+output_layer_input1=hidden_layer_activations%*%wout#
+output_layer_input=output_layer_input1+bout#
+output= activation(output_layer_input)#
+#
+# Back Propagation#
+#
+E=Y-output#
+slope_output_layer=d_activation(output)#
+slope_hidden_layer=d_activation(hidden_layer_activations)#
+d_output=E*slope_output_layer#
+Error_at_hidden_layer=d_output%*%t(wout)#
+d_hiddenlayer=Error_at_hidden_layer*slope_hidden_layer#
+wout= wout + (t(hidden_layer_activations)%*%d_output)*lr#
+bout= bout+rowSums(d_output)*lr#
+wh = wh +(t(X)%*%d_hiddenlayer)*lr#
+bh = bh + rowSums(d_hiddenlayer)*lr#
+#
+}#
+
+i#
+
+bh#
+
+hidden_layer_activations=activation(hidden_layer_input)#
+
+Q#
+
+for(i in 1:epoch){#
+debug()#
+hidden_layer_input1= X%*%wh#
+hidden_layer_input=hidden_layer_input1+bh#
+hidden_layer_activations=activation(hidden_layer_input)#
+output_layer_input1=hidden_layer_activations%*%wout#
+output_layer_input=output_layer_input1+bout#
+output= activation(output_layer_input)#
+#
+# Back Propagation#
+#
+E=Y-output#
+slope_output_layer=d_activation(output)#
+slope_hidden_layer=d_activation(hidden_layer_activations)#
+d_output=E*slope_output_layer#
+Error_at_hidden_layer=d_output%*%t(wout)#
+d_hiddenlayer=Error_at_hidden_layer*slope_hidden_layer#
+wout= wout + (t(hidden_layer_activations)%*%d_output)*lr#
+bout= bout+rowSums(d_output)*lr#
+wh = wh +(t(X)%*%d_hiddenlayer)*lr#
+bh = bh + rowSums(d_hiddenlayer)*lr#
+#
+}#
+
+options(deparse.max.lines=100)#
+
+for(i in 1:epoch){#
+browser()#
+hidden_layer_input1= X%*%wh#
+hidden_layer_input=hidden_layer_input1+bh#
+hidden_layer_activations=activation(hidden_layer_input)#
+output_layer_input1=hidden_layer_activations%*%wout#
+output_layer_input=output_layer_input1+bout#
+output= activation(output_layer_input)#
+#
+# Back Propagation#
+#
+E=Y-output#
+slope_output_layer=d_activation(output)#
+slope_hidden_layer=d_activation(hidden_layer_activations)#
+d_output=E*slope_output_layer#
+Error_at_hidden_layer=d_output%*%t(wout)#
+d_hiddenlayer=Error_at_hidden_layer*slope_hidden_layer#
+wout= wout + (t(hidden_layer_activations)%*%d_output)*lr#
+bout= bout+rowSums(d_output)*lr#
+wh = wh +(t(X)%*%d_hiddenlayer)*lr#
+bh = bh + rowSums(d_hiddenlayer)*lr#
+#
+}#
+
+n#
+
+Q#
+
+q()#
+

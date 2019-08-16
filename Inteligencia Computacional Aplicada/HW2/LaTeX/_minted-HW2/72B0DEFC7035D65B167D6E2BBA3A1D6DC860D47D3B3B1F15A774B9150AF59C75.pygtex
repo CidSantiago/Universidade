@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	corThresh \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{.9}\PYG{p}{;}
+	tooHigh \PYG{o}{\PYGZlt{}\PYGZhy{}} findCorrelation\PYG{p}{(}cor\PYG{p}{(}solTrainXtrans\PYG{p}{),} corThresh\PYG{p}{);}
+	corrPred \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{names}\PYG{p}{(}solTrainXtrans\PYG{p}{)[}tooHigh\PYG{p}{];}
+	\PYG{k+kp}{length}\PYG{p}{(}tooHigh\PYG{p}{)}
+	corrPred
+
+	trainXfiltered \PYG{o}{\PYGZlt{}\PYGZhy{}} solTrainXtrans\PYG{p}{[,} \PYG{o}{\PYGZhy{}}tooHigh\PYG{p}{];}
+	testXfiltered \PYG{o}{\PYGZlt{}\PYGZhy{}} solTestXtrans\PYG{p}{[,} \PYG{o}{\PYGZhy{}}tooHigh\PYG{p}{];}
+\end{Verbatim}

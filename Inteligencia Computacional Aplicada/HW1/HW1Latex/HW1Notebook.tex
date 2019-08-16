@@ -1,0 +1,751 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{HW1Notebook}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Departamento de Engenharia de
+Teleinformática}\label{departamento-de-engenharia-de-teleinformuxe1tica}
+
+\section{Inteligência Computacional Aplicada -
+HW1}\label{inteliguxeancia-computacional-aplicada---hw1}
+
+\section{Profª. Drª Michela Mulas}\label{profuxaa.-druxaa-michela-mulas}
+
+\section{Aluno: Caio Cid Santiago Barbosa -
+378596}\label{aluno-caio-cid-santiago-barbosa---378596}
+
+    \subsection{Questão 1 e 2}\label{questuxe3o-1-e-2}
+
+Nas primeiras duas questões, foi pedido que analisassemos os histogramas
+dos \emph{predictors}, além de suas médias, desvio padrão e
+\emph{skewness}, sendo na primeira englobando todas as amostras e na
+segunda dividindo-os por tipo. Começaremos, portanto, primeiro com o
+histograma por \emph{predictors} de todas as amostras.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{k+kn}{library}\PY{p}{(}mlbench\PY{p}{)}\PY{p}{;} 
+         \PY{k+kn}{library}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{AppliedPredictiveModeling\PYZdq{}}\PY{p}{)}\PY{p}{;}
+         \PY{k+kn}{library}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{e1071\PYZdq{}}\PY{p}{)}\PY{p}{;}
+         \PY{k+kn}{library}\PY{p}{(}corrplot\PY{p}{)}\PY{p}{;}
+         \PY{k+kn}{library}\PY{p}{(}ggplot2\PY{p}{)}\PY{p}{;}
+         \PY{k+kn}{library}\PY{p}{(}ggfortify\PY{p}{)}\PY{p}{;}
+         data\PY{p}{(}Glass\PY{p}{)}\PY{p}{;}
+         
+         \PY{c+c1}{\PYZsh{}Questao 1}
+         
+         par\PY{p}{(}mfrow\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}
+         
+         RI.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}RI\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Refraction Index\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Refraction index\PYZdq{}}\PY{p}{,} col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Na.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Na\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Na \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Na \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Mg.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Mg\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Mg \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Mg \PYZpc{}\PYZdq{}}\PY{p}{,}col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Al.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Al\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Al \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Al \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Si.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Si\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Si \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Si \PYZpc{}\PYZdq{}}\PY{p}{,}col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         K.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}K\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of K \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                        xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{K \PYZpc{}\PYZdq{}}\PY{p}{,}col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Ca.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ca\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Ca \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ca \PYZpc{}\PYZdq{}}\PY{p}{,}col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Ba.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ba\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Ba \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ba \PYZpc{}\PYZdq{}}\PY{p}{,}col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         Fe.hist \PY{o}{\PYZlt{}\PYZhy{}} hist\PY{p}{(}Glass\PY{o}{\PYZdl{}}Fe\PY{p}{,} main \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Histogram of Fe \PYZpc{}\PYZdq{}}\PY{p}{,} 
+                         xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Fe \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Gray\PYZdq{}}\PY{p}{)}
+         
+         meanAll \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,}  
+                      \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} 
+                      \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}Glass\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}
+         devAll \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,} sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} 
+                     sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,}
+                     sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} sd\PY{p}{(}Glass\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}
+         skewAll \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,} skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} 
+                      skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} 
+                      skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} 
+                      skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} skewness\PY{p}{(}Glass\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}
+         dataAll \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}meanAll\PY{p}{,} devAll\PY{p}{,} skewAll\PY{p}{)}
+         \PY{k+kp}{rownames}\PY{p}{(}dataAll\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{RI\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Na\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Mg\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Al\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Si\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{K\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ca\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ba\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Fe\PYZdq{}}\PY{p}{)}
+         \PY{k+kp}{colnames}\PY{p}{(}dataAll\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Mean\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Standard Deviation\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Skewness\PYZdq{}}\PY{p}{)}
+         
+         dataAll
+\end{Verbatim}
+
+    \begin{tabular}{r|lll}
+  & Mean & Standard Deviation & Skewness\\
+\hline
+    RI &  1.51836542 & 0.003036864 &  1.6027151 \\
+    Na & 13.40785047 & 0.816603556 &  0.4478343 \\
+    Mg &  2.68453271 & 1.442407845 & -1.1364523 \\
+    Al &  1.44490654 & 0.499269646 &  0.8946104 \\
+    Si & 72.65093458 & 0.774545795 & -0.7202392 \\
+    K &  0.49705607 & 0.652191846 &  6.4600889 \\
+    Ca &  8.95696262 & 1.423153487 &  2.0184463 \\
+    Ba &  0.17504673 & 0.497219261 &  3.3686800 \\
+    Fe &  0.05700935 & 0.097438701 &  1.7298107 \\
+\end{tabular}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_2_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Agora, analisaremos os histogramas das amostras por Tipo, indo de 1 a 7
+(ressaltamos que não existem amostras do tipo 4).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{}Questao 2}
+         
+         par\PY{p}{(}mfrow\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{3}\PY{p}{,}\PY{l+m}{3}\PY{p}{)}\PY{p}{)}
+         GlassByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{split}\PY{p}{(}Glass\PY{p}{,} Glass\PY{o}{\PYZdl{}}Type\PY{p}{)}
+         meanByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}RI \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Na \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Mg \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} 
+         			 Al \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Si \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} K \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} 
+         			 Ca \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Ba \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Fe \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         devByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}RI \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Na \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Mg \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} 
+         			 Al \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Si \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} K \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} 
+         			 Ca \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Ba \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Fe \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         skewByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{data.frame}\PY{p}{(}RI \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Na \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Mg \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} 
+         			 Al \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Si \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} K \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} 
+         			 Ca \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Ba \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{,} Fe \PY{o}{=} \PY{k+kt}{numeric}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         
+         \PY{k+kr}{for} \PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{1}\PY{o}{:}\PY{l+m}{3}\PY{p}{)}\PY{p}{\PYZob{}}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Refraction Index \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Refraction Index\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Na \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Na \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Mg \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Mg \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Al \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Al \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Si \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Si \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of K \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{K \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Ca \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ca \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Ba \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ba \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Fe \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Fe \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{26}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+         
+         meanByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}meanByType\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,}
+         				  \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,}
+         				  \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} 
+                                           \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} 
+                                           \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         devByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}devByType\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,} 
+         				 sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} 
+         				 sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,}
+         				 sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,}
+         				 sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         skewByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}skewByType\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} 
+         				  skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,} 
+         				  skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}\PY{p}{)}
+           
+         \PY{p}{\PYZcb{}}
+         \PY{k+kr}{for} \PY{p}{(}i \PY{k+kr}{in} \PY{l+m}{4}\PY{o}{:}\PY{l+m}{6}\PY{p}{)}\PY{p}{\PYZob{}}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Refraction Index \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Refraction Index\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Na \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Na \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Mg \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Mg \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Al \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Al \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Si \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Si \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{,}
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of K \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{K \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{,} xlim \PY{o}{=} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{8}\PY{p}{)}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{,} 
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Ca \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ca \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{,}
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Ba \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Ba \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{,} xlim \PY{o}{=} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{4}\PY{p}{)}\PY{p}{)}
+           
+           hist\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{,}
+                main \PY{o}{=} \PY{k+kp}{paste}\PY{p}{(}\PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Histrogram of Fe \PYZpc{} \PYZhy{} Glass Type\PYZdq{}}\PY{p}{,}i\PY{l+m}{+1}\PY{p}{)}\PY{p}{,} collapse \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{ \PYZdq{}}\PY{p}{)}\PY{p}{,}
+                xlab \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Fe \PYZpc{}\PYZdq{}}\PY{p}{,} col \PY{o}{=} colors\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m}{120}\PY{o}{*}i\PY{p}{]}\PY{p}{,} xlim \PY{o}{=} \PY{k+kt}{c}\PY{p}{(}\PY{l+m}{0}\PY{p}{,}\PY{l+m}{1}\PY{p}{)}\PY{p}{)}
+           
+         meanByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}meanByType\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}\PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,}
+                                           \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} 
+                                           \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} 
+                                           \PY{k+kp}{mean}\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         devByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}devByType\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,}
+                                           sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} 
+                                           sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} 
+                                           sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} 
+                                           sd\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         skewByType \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kp}{rbind}\PY{p}{(}skewByType\PY{p}{,} \PY{k+kt}{c}\PY{p}{(}skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}RI\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Na\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Mg\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Al\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Si\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}K\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ca\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Ba\PY{p}{)}\PY{p}{,} 
+                                           skewness\PY{p}{(}GlassByType\PY{p}{[[}i\PY{p}{]]}\PY{o}{\PYZdl{}}Fe\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         
+         \PY{p}{\PYZcb{}}
+         \PY{k+kp}{rownames}\PY{p}{(}meanByType\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 5\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 6\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 7\PYZdq{}}\PY{p}{)}
+         \PY{k+kp}{rownames}\PY{p}{(}devByType\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}}  \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 5\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 6\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 7\PYZdq{}}\PY{p}{)}
+         \PY{k+kp}{rownames}\PY{p}{(}skewByType\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 1\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 2\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 3\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 5\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 6\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Tipo 7\PYZdq{}}\PY{p}{)}
+         
+         \PY{k+kp}{colnames}\PY{p}{(}meanByType\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{RI\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Na\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Mg\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Al\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Si\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{K\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ca\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ba\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Fe\PYZdq{}}\PY{p}{)}
+         \PY{k+kp}{colnames}\PY{p}{(}devByType\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{RI\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Na\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Mg\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Al\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Si\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{K\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ca\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ba\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Fe\PYZdq{}}\PY{p}{)}
+         \PY{k+kp}{colnames}\PY{p}{(}skewByType\PY{p}{)} \PY{o}{\PYZlt{}\PYZhy{}} \PY{k+kt}{c}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{RI\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Na\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Mg\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Al\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Si\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{K\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ca\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Ba\PYZdq{}}\PY{p}{,}\PY{l+s}{\PYZdq{}}\PY{l+s}{Fe\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Mean by type}\label{mean-by-type}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} meanByType
+\end{Verbatim}
+
+    \resizebox{\textwidth}{!}{\begin{tabular}{r|lllllllll}
+  & RI & Na & Mg & Al & Si & K & Ca & Ba & Fe\\
+\hline
+    Tipo 1 & 1.518718    & 13.24229    & 3.5524286   & 1.163857    & 72.61914    & 0.4474286   &  8.797286   & 0.012714286 & 0.05700000 \\
+    Tipo 2 & 1.518619    & 13.11171    & 3.0021053   & 1.408158    & 72.59803    & 0.5210526   &  9.073684   & 0.050263158 & 0.07973684 \\
+    Tipo 3 & 1.517964    & 13.43706    & 3.5435294   & 1.201176    & 72.40471    & 0.4064706   &  8.782941   & 0.008823529 & 0.05705882 \\
+    Tipo 5 & 1.518928    & 12.82769    & 0.7738462   & 2.033846    & 72.36615    & 1.4700000   & 10.123846   & 0.187692308 & 0.06076923 \\
+    Tipo 6 & 1.517456    & 14.64667    & 1.3055556   & 1.366667    & 73.20667    & 0.0000000   &  9.356667   & 0.000000000 & 0.00000000 \\
+    Tipo 7 & 1.517116    & 14.44207    & 0.5382759   & 2.122759    & 72.96586    & 0.3251724   &  8.491379   & 1.040000000 & 0.01344828 \\
+\end{tabular}}
+
+    
+    \subsubsection{Standard Deviation by
+type}\label{standard-deviation-by-type}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} devByType
+\end{Verbatim}
+
+    \resizebox{\textwidth}{!}{\begin{tabular}{r|lllllllll}
+  & RI & Na & Mg & Al & Si & K & Ca & Ba & Fe\\
+\hline
+    Tipo 1 & 0.002268097 & 0.4993015   & 0.2470430   & 0.2731581   & 0.5694842   & 0.2148790   & 0.5748066   & 0.08383769  & 0.08907496 \\
+    Tipo 2 & 0.003802126 & 0.6641594   & 1.2156615   & 0.3183403   & 0.7245726   & 0.2137262   & 1.9216353   & 0.36234044  & 0.10643275 \\
+    Tipo 3 & 0.001916360 & 0.5068871   & 0.1627859   & 0.3474889   & 0.5122758   & 0.2298897   & 0.3801112   & 0.03638034  & 0.10786361 \\
+    Tipo 5 & 0.003345355 & 0.7770366   & 0.9991458   & 0.6939205   & 1.2823191   & 2.1386951   & 2.1837908   & 0.60825096  & 0.15558821 \\
+    Tipo 6 & 0.003115783 & 1.0840203   & 1.0971339   & 0.5718610   & 1.0794675   & 0.0000000   & 1.4499483   & 0.00000000  & 0.00000000 \\
+    Tipo 7 & 0.002545069 & 0.6863588   & 1.1176828   & 0.4427261   & 0.9402337   & 0.6684931   & 0.9735052   & 0.66534094  & 0.02979404 \\
+\end{tabular}}
+
+    
+    \subsubsection{Skewness by type}\label{skewness-by-type}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} skewByType
+\end{Verbatim}
+    \resizebox{\textwidth}{!}{\begin{tabular}{r|lllllllll}
+  & RI & Na & Mg & Al & Si & K & Ca & Ba & Fe\\
+\hline
+    Tipo 1 &  0.7437286 &  0.7538231 & -0.6767263 & -1.0800373 & -0.5542691 & -0.8997727 &  0.6863776 & 7.5619933  & 1.3041178 \\
+    Tipo 2 &  2.0576334 & -1.0495492 & -1.7735903 & -0.3715251 & -1.3759015 & -0.9699909 &  2.0816494 & 8.2385374  & 0.9489729 \\
+    Tipo 3 &  0.9707950 & -0.4619438 &  0.6021565 & -0.3325460 & -0.6913984 & -0.6377215 &  0.7853627 & 3.4240324  & 1.6919393 \\
+    Tipo 5 & -0.5692461 & -0.9348808 &  0.5860668 &  0.9982672 & -0.6439219 &  1.5919612 & -0.7898330 & 2.7606112  & 2.0163265 \\
+    Tipo 6 & -1.1310170 &  1.6786808 & -0.2194845 & -0.6702752 &  0.9974867 &        NaN & -0.5485900 &       NaN  &       NaN \\
+    Tipo 7 &  0.9765233 & -1.4473029 &  1.6320747 & -0.2928373 & -1.2115324 &  2.1395094 & -1.9355386 & 0.4505834  & 1.7805965 \\
+\end{tabular}}
+\vskip0.4cm
+    
+    Analisando os histogramas, percebemos que não existe nenhum
+\emph{predictor} com poder discriminativo. Ou seja, nenhum
+\emph{predictor} sozinho consegue distinguir os tipos. Percebemos isso
+pois não há nenhuma relação distintiva dos histogramas. Nenhum deles
+aumentar linearmente, por exemplo.
+
+    \subsection{Questão 3}\label{questuxe3o-3}
+
+Nessa questão, foi pedido um \emph{scatter plot} dos \emph{predictors},
+além de uma analise deles e da matriz de correlação. Começamos mostrando
+o \emph{scatter plot}.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{c+c1}{\PYZsh{}Questao 3}
+         
+         pairs\PY{p}{(}Glass\PY{p}{[}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{9}\PY{p}{]}\PY{p}{,} col \PY{o}{=} Glass\PY{o}{\PYZdl{}}Type\PY{p}{,} pch\PY{o}{=}\PY{l+m}{20}\PY{p}{)}
+         
+         par\PY{p}{(}mfrow\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{)}\PY{p}{)}
+         correlation \PY{o}{\PYZlt{}\PYZhy{}} cor\PY{p}{(}Glass\PY{p}{[}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{9}\PY{p}{]}\PY{p}{)}
+         corrplot\PY{p}{(}correlation\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_13_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_13_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Analisando o \emph{scatter plot}, conseguimos identificar alguns
+graficos com aparentes relações lineares, como o do RI x Ca e o do RI x
+Si. Com a matriz de correlação, confirmamos nossas suspeitas ao
+visualisarmos que os dois elementos com maiores modulo são o do RI x Ca
+e do RI x Si. Isso indica que existe uma relação linear entre esses
+\emph{predictors}, sendo a do RI x Ca proporcinal e a do RI x Si
+inversamente proporcional.
+
+    \subsection{Questao 4}\label{questao-4}
+
+Por último, foi pedido que façamos uma PCA dos \emph{predictors}. Pelos
+dados passadas, analisando a matriz de correlação, podemos adiantar que
+os dois principais componentes provavelmente serão o do RI e do Ca.
+Dessa forma, os dados serão ortogonalizados nesses dois
+\emph{predictors} Agora, iremos para o codigo. Primeiro, vamos verificar
+que a função \textbf{prcomp} fornece valores coerentes. Para isso,
+compararemos os valores de PCs fornecidos por ela, com os autovalores e
+autovetores fornecidos pela matriz de correlação.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{c+c1}{\PYZsh{}Questao 4}
+         
+         pcaObject \PY{o}{\PYZlt{}\PYZhy{}} prcomp\PY{p}{(}Glass\PY{p}{[}\PY{l+m}{1}\PY{o}{:}\PY{l+m}{9}\PY{p}{]}\PY{p}{,} center \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} scale. \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+         
+         pcaObject\PY{o}{\PYZdl{}}rotation
+         \PY{k+kp}{eigen}\PY{p}{(}correlation\PY{p}{)}\PY{o}{\PYZdl{}}vectors
+\end{Verbatim}
+
+    \resizebox{\textwidth}{!}{\begin{tabular}{r|lllllllll}
+  & PC1 & PC2 & PC3 & PC4 & PC5 & PC6 & PC7 & PC8 & PC9\\
+\hline
+    RI & -0.5451766    &  0.28568318   & -0.0869108293 & -0.14738099   &  0.073542700  & -0.11528772   & -0.08186724   & -0.75221590   & -0.02573194  \\
+    Na &  0.2581256    &  0.27035007   &  0.3849196197 & -0.49124204   & -0.153683304  &  0.55811757   & -0.14858006   & -0.12769315   &  0.31193718  \\
+    Mg & -0.1108810    & -0.59355826   & -0.0084179590 & -0.37878577   & -0.123509124  & -0.30818598   &  0.20604537   & -0.07689061   &  0.57727335  \\
+    Al &  0.4287086    &  0.29521154   & -0.3292371183 &  0.13750592   & -0.014108879  &  0.01885731   &  0.69923557   & -0.27444105   &  0.19222686  \\
+    Si &  0.2288364    & -0.15509891   &  0.4587088382 &  0.65253771   & -0.008500117  & -0.08609797   & -0.21606658   & -0.37992298   &  0.29807321  \\
+    K &  0.2193440    & -0.15397013   & -0.6625741197 &  0.03853544   &  0.307039842  &  0.24363237   & -0.50412141   & -0.10981168   &  0.26050863  \\
+    Ca & -0.4923061    &  0.34537980   &  0.0009847321 &  0.27644322   &  0.188187742  &  0.14866937   &  0.09913463   &  0.39870468   &  0.57932321  \\
+    Ba &  0.2503751    &  0.48470218   & -0.0740547309 & -0.13317545   & -0.251334261  & -0.65721884   & -0.35178255   &  0.14493235   &  0.19822820  \\
+    Fe & -0.1858415    & -0.06203879   & -0.2844505524 &  0.23049202   & -0.873264047  &  0.24304431   & -0.07372136   & -0.01627141   &  0.01466944  \\
+\end{tabular}}
+
+\vskip0.4cm    
+    \resizebox{\textwidth}{!}{\begin{tabular}{lllllllll}
+      0.5451766    & -0.28568318   & -0.0869108293 &  0.14738099   &  0.073542700  & -0.11528772   &  0.08186724   &  0.75221590   &  0.02573194  \\
+     -0.2581256    & -0.27035007   &  0.3849196197 &  0.49124204   & -0.153683304  &  0.55811757   &  0.14858006   &  0.12769315   & -0.31193718  \\
+      0.1108810    &  0.59355826   & -0.0084179590 &  0.37878577   & -0.123509124  & -0.30818598   & -0.20604537   &  0.07689061   & -0.57727335  \\
+     -0.4287086    & -0.29521154   & -0.3292371183 & -0.13750592   & -0.014108879  &  0.01885731   & -0.69923557   &  0.27444105   & -0.19222686  \\
+     -0.2288364    &  0.15509891   &  0.4587088382 & -0.65253771   & -0.008500117  & -0.08609797   &  0.21606658   &  0.37992298   & -0.29807321  \\
+     -0.2193440    &  0.15397013   & -0.6625741197 & -0.03853544   &  0.307039842  &  0.24363237   &  0.50412141   &  0.10981168   & -0.26050863  \\
+      0.4923061    & -0.34537980   &  0.0009847321 & -0.27644322   &  0.188187742  &  0.14866937   & -0.09913463   & -0.39870468   & -0.57932321  \\
+     -0.2503751    & -0.48470218   & -0.0740547309 &  0.13317545   & -0.251334261  & -0.65721884   &  0.35178255   & -0.14493235   & -0.19822820  \\
+      0.1858415    &  0.06203879   & -0.2844505524 & -0.23049202   & -0.873264047  &  0.24304431   &  0.07372136   &  0.01627141   & -0.01466944  \\
+\end{tabular}}
+
+\vskip0.4cm    
+    Com isso, verificamos que os autovetores estão iguais, comprovando a
+eficacia do \textbf{prcomp} e de seus parâmetros. Agora, iremos plotar
+os dados ortogonalizados em PC1 e PC2. Nos plots abaixos, utilizamos a
+biblioteca \textbf{ggfortify} e \textbf{ggplot2} para melhor
+visualização e distribuição dos dados.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} par\PY{p}{(}mfrow\PY{o}{=}\PY{k+kt}{c}\PY{p}{(}\PY{l+m}{1}\PY{p}{,}\PY{l+m}{1}\PY{p}{)}\PY{p}{)}
+         autoplot\PY{p}{(}pcaObject\PY{p}{,} data \PY{o}{=} Glass\PY{p}{,} colour \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Type\PYZsq{}}\PY{p}{)}
+         autoplot\PY{p}{(}pcaObject\PY{p}{,} data \PY{o}{=} Glass\PY{p}{,} colour \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Type\PYZsq{}}\PY{p}{,} frame \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{)}
+         autoplot\PY{p}{(}pcaObject\PY{p}{,} data \PY{o}{=} Glass\PY{p}{,} colour \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Type\PYZsq{}}\PY{p}{,} frame \PY{o}{=} \PY{k+kc}{TRUE}\PY{p}{,} frame.type \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{norm\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    
+    
+    
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Observando o PCA, vemos que os dados do tipo 7 foram os que ficaram mais
+clusterizados(\emph{clustered}), desse modo, ficando razoavelmente
+simples sua identificação. Contudo, ao agruparmos os dados por frames,
+para melhor visualização, vemos que ainda existe muita sobreposição por
+todos os tipos. No primeiro gráfico agrupado, vemos um sistema que
+considera os pontos mais longíquos e envolve todos os pontos desse tipo,
+o que não é uma aproximação desejada, tendo em vista que pega todos os
+\emph{outliers}. É fácil perceber isso quando vemos o agrupamento do
+tipo 2, que envolve quase todos. O segunda agrupamento, por elipses, é
+mais coerente, pois desconsidera alguns \emph{outliers}, porém, ainda
+também não é o ideal, pois tipos com poucos dados, como o tipo 2, acabam
+envolvendo uma área muito grande, enquanto não deveria ser tanto.
+
+Percebemos pelos gráficos que as fronteiras das classes projetadas nos
+PCAs não são lineares, e que são de difícil separação apenas observando
+o gráfico. Além disso, identificamos também que os tipos 1,2,3 são os
+mais sobrepostos, sendo os de mais dificil separação.
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

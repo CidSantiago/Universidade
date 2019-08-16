@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k+kp}{set.seed}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{)}
+	plsTune \PYG{o}{\PYGZlt{}\PYGZhy{}} train\PYG{p}{(}solTrainXtrans\PYG{p}{,} solTrainY\PYG{p}{,} method \PYG{o}{=} \PYG{l+s}{\PYGZdq{}pls\PYGZdq{}}\PYG{p}{,} tuneLength \PYG{o}{=} \PYG{l+m}{25}\PYG{p}{,} trControl \PYG{o}{=} fold10\PYG{p}{,} preProc \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}center\PYGZdq{}}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}scale\PYGZdq{}}\PYG{p}{))}
+	plsTune
+	plot\PYG{p}{(}plsTune\PYG{p}{,} xlab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Number of components\PYGZdq{}}\PYG{p}{,} ylab \PYG{o}{=} \PYG{l+s}{\PYGZdq{}RMSE (Cross Validation)\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	correlation \PYG{o}{\PYGZlt{}\PYGZhy{}} cor\PYG{p}{(}\PYG{k+kp}{cbind}\PYG{p}{(}solTrainXtrans\PYG{p}{[}\PYG{l+m}{209}\PYG{o}{:}\PYG{l+m}{228}\PYG{p}{],}solTrainY\PYG{p}{))}
+	corrplot\PYG{p}{(}correlation\PYG{p}{,} order \PYG{o}{=} \PYG{l+s}{\PYGZdq{}hclust\PYGZdq{}}\PYG{p}{,} mar \PYG{o}{=} \PYG{k+kt}{c}\PYG{p}{(}\PYG{l+m}{1}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{))}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	plsPred \PYG{o}{\PYGZlt{}\PYGZhy{}} predict\PYG{p}{(}plsTune\PYG{p}{,} solTestXtrans\PYG{p}{)}
+	pls.df \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{data.frame}\PYG{p}{(}pred \PYG{o}{=} plsPred\PYG{p}{,} obs \PYG{o}{=} solTestY\PYG{p}{)}
+	defaultSummary\PYG{p}{(}pls.df\PYG{p}{)}
+\end{Verbatim}

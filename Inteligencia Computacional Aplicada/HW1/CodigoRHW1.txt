@@ -1,0 +1,168 @@
+library(mlbench); 
+library("AppliedPredictiveModeling");
+library("e1071");
+library(corrplot);
+data(Glass);
+
+#Questao 1
+
+par(mfrow=c(3,3))
+
+RI.hist <- hist(Glass$RI, main = "Histogram of Refraction Index", 
+                xlab = "Refraction index", col = "Gray")
+
+Na.hist <- hist(Glass$Na, main = "Histogram of Na %", 
+                xlab = "Na %", col = "Gray")
+
+Mg.hist <- hist(Glass$Mg, main = "Histogram of Mg %", 
+                xlab = "Mg %",col = "Gray")
+
+Al.hist <- hist(Glass$Al, main = "Histogram of Al %", 
+                xlab = "Al %", col = "Gray")
+
+Si.hist <- hist(Glass$Si, main = "Histogram of Si %", 
+                xlab = "Si %",col = "Gray")
+
+K.hist <- hist(Glass$K, main = "Histogram of K %", 
+               xlab = "K %",col = "Gray")
+
+Ca.hist <- hist(Glass$Ca, main = "Histogram of Ca %", 
+                xlab = "Ca %",col = "Gray")
+
+Ba.hist <- hist(Glass$Ba, main = "Histogram of Ba %", 
+                xlab = "Ba %",col = "Gray")
+
+Fe.hist <- hist(Glass$Fe, main = "Histogram of Fe %", 
+                xlab = "Fe %", col = "Gray")
+
+meanAll <- c(mean(Glass$RI), mean(Glass$Na), mean(Glass$Mg), mean(Glass$Al), mean(Glass$Si), mean(Glass$K), 
+             mean(Glass$Ca), mean(Glass$Ba), mean(Glass$Fe))
+devAll <- c(sd(Glass$RI), sd(Glass$Na), sd(Glass$Mg), sd(Glass$Al), sd(Glass$Si), sd(Glass$K),
+            sd(Glass$Ca), sd(Glass$Ba), sd(Glass$Fe))
+skewAll <- c(skewness(Glass$RI), skewness(Glass$Na), skewness(Glass$Mg), skewness(Glass$Al), skewness(Glass$Si), 
+             skewness(Glass$K), skewness(Glass$Ca), skewness(Glass$Ba), skewness(Glass$Fe))
+dataAll <- data.frame(meanAll, devAll, skewAll)
+rownames(dataAll) <- c("RI","Na","Mg","Al","Si","K","Ca","Ba","Fe")
+colnames(dataAll) <- c("Mean", "Standard Deviation", "Skewness")
+
+dataAll
+
+#Questao 2
+
+par(mfrow=c(3,3))
+GlassByType <- split(Glass, Glass$Type)
+meanByType <- data.frame(RI = numeric(), Na = numeric(), Mg = numeric(), Al = numeric(), Si = numeric(),
+                         K = numeric(), Ca = numeric(), Ba = numeric(), Fe = numeric())
+devByType <- data.frame(RI = numeric(), Na = numeric(), Mg = numeric(), Al = numeric(), Si = numeric(),
+                         K = numeric(), Ca = numeric(), Ba = numeric(), Fe = numeric())
+skewByType <- data.frame(RI = numeric(), Na = numeric(), Mg = numeric(), Al = numeric(), Si = numeric(),
+                         K = numeric(), Ca = numeric(), Ba = numeric(), Fe = numeric())
+
+for (i in 1:3){
+  
+  hist(GlassByType[[i]]$RI, main = paste(c("Histrogram of Refraction Index - Glass Type",i), collapse = " "),
+       xlab = "Refraction Index", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Na, main = paste(c("Histrogram of Na % - Glass Type",i), collapse = " "),
+       xlab = "Na %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Mg, main = paste(c("Histrogram of Mg % - Glass Type",i), collapse = " "),
+       xlab = "Mg %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Al, main = paste(c("Histrogram of Al % - Glass Type",i), collapse = " "),
+       xlab = "Al %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Si, main = paste(c("Histrogram of Si % - Glass Type",i), collapse = " "),
+       xlab = "Si %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$K, main = paste(c("Histrogram of K % - Glass Type",i), collapse = " "),
+       xlab = "K %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Ca, main = paste(c("Histrogram of Ca % - Glass Type",i), collapse = " "),
+       xlab = "Ca %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Ba, main = paste(c("Histrogram of Ba % - Glass Type",i), collapse = " "),
+       xlab = "Ba %", col = colors()[26*i])
+  
+  hist(GlassByType[[i]]$Fe, main = paste(c("Histrogram of Fe % - Glass Type",i), collapse = " "),
+       xlab = "Fe %", col = colors()[26*i])
+
+meanByType <- rbind(meanByType, c(mean(GlassByType[[i]]$RI), mean(GlassByType[[i]]$Na), mean(GlassByType[[i]]$Mg), 
+                                  mean(GlassByType[[i]]$Al), mean(GlassByType[[i]]$Si), mean(GlassByType[[i]]$K), 
+                                  mean(GlassByType[[i]]$Ca), mean(GlassByType[[i]]$Ba), mean(GlassByType[[i]]$Fe)))
+devByType <- rbind(devByType, c(sd(GlassByType[[i]]$RI), sd(GlassByType[[i]]$Na), sd(GlassByType[[i]]$Mg), 
+                                  sd(GlassByType[[i]]$Al), sd(GlassByType[[i]]$Si), sd(GlassByType[[i]]$K), 
+                                  sd(GlassByType[[i]]$Ca), sd(GlassByType[[i]]$Ba), sd(GlassByType[[i]]$Fe)))
+skewByType <- rbind(skewByType, c(skewness(GlassByType[[i]]$RI), skewness(GlassByType[[i]]$Na), skewness(GlassByType[[i]]$Mg), 
+                                  skewness(GlassByType[[i]]$Al), skewness(GlassByType[[i]]$Si), skewness(GlassByType[[i]]$K), 
+                                  skewness(GlassByType[[i]]$Ca), skewness(GlassByType[[i]]$Ba), skewness(GlassByType[[i]]$Fe)))
+  
+}
+for (i in 4:6){
+  
+  hist(GlassByType[[i]]$RI, main = paste(c("Histrogram of Refraction Index - Glass Type",i+1), collapse = " "),
+       xlab = "Refraction Index", col = colors()[120*i])
+  
+  hist(GlassByType[[i]]$Na, main = paste(c("Histrogram of Na % - Glass Type",i+1), collapse = " "),
+       xlab = "Na %", col = colors()[120*i])
+  
+  hist(GlassByType[[i]]$Mg, main = paste(c("Histrogram of Mg % - Glass Type",i+1), collapse = " "),
+       xlab = "Mg %", col = colors()[120*i])
+  
+  hist(GlassByType[[i]]$Al, main = paste(c("Histrogram of Al % - Glass Type",i+1), collapse = " "),
+       xlab = "Al %", col = colors()[120*i])
+  
+  hist(GlassByType[[i]]$Si, main = paste(c("Histrogram of Si % - Glass Type",i+1), collapse = " "),
+       xlab = "Si %", col = colors()[120*i])
+  
+  hist(GlassByType[[i]]$K, main = paste(c("Histrogram of K % - Glass Type",i+1), collapse = " "),
+       xlab = "K %", col = colors()[120*i], xlim = c(0,8))
+  
+  hist(GlassByType[[i]]$Ca, main = paste(c("Histrogram of Ca % - Glass Type",i+1), collapse = " "),
+       xlab = "Ca %", col = colors()[120*i])
+  
+  hist(GlassByType[[i]]$Ba, main = paste(c("Histrogram of Ba % - Glass Type",i+1), collapse = " "),
+       xlab = "Ba %", col = colors()[120*i], xlim = c(0,4))
+  
+  hist(GlassByType[[i]]$Fe, main = paste(c("Histrogram of Fe % - Glass Type",i+1), collapse = " "),
+       xlab = "Fe %", col = colors()[120*i], xlim = c(0,2))
+  
+meanByType <- rbind(meanByType, c(mean(GlassByType[[i]]$RI), mean(GlassByType[[i]]$Na), mean(GlassByType[[i]]$Mg), 
+                                  mean(GlassByType[[i]]$Al), mean(GlassByType[[i]]$Si), mean(GlassByType[[i]]$K), 
+                                  mean(GlassByType[[i]]$Ca), mean(GlassByType[[i]]$Ba), mean(GlassByType[[i]]$Fe)))
+devByType <- rbind(devByType, c(sd(GlassByType[[i]]$RI), sd(GlassByType[[i]]$Na), sd(GlassByType[[i]]$Mg), 
+                                  sd(GlassByType[[i]]$Al), sd(GlassByType[[i]]$Si), sd(GlassByType[[i]]$K), 
+                                  sd(GlassByType[[i]]$Ca), sd(GlassByType[[i]]$Ba), sd(GlassByType[[i]]$Fe)))
+skewByType <- rbind(skewByType, c(skewness(GlassByType[[i]]$RI), skewness(GlassByType[[i]]$Na), skewness(GlassByType[[i]]$Mg), 
+                                  skewness(GlassByType[[i]]$Al), skewness(GlassByType[[i]]$Si), skewness(GlassByType[[i]]$K), 
+                                  skewness(GlassByType[[i]]$Ca), skewness(GlassByType[[i]]$Ba), skewness(GlassByType[[i]]$Fe)))
+
+}
+rownames(meanByType) <- c("Tipo 1", "Tipo 2", "Tipo 3", "Tipo 5","Tipo 6","Tipo 7")
+rownames(devByType) <-  c("Tipo 1", "Tipo 2", "Tipo 3", "Tipo 5","Tipo 6","Tipo 7")
+rownames(skewByType) <- c("Tipo 1", "Tipo 2", "Tipo 3", "Tipo 5","Tipo 6","Tipo 7")
+
+colnames(meanByType) <- c("RI","Na","Mg","Al","Si","K","Ca","Ba","Fe")
+colnames(devByType) <- c("RI","Na","Mg","Al","Si","K","Ca","Ba","Fe")
+colnames(skewByType) <- c("RI","Na","Mg","Al","Si","K","Ca","Ba","Fe")
+
+meanByType
+devByType
+skewByType
+
+#Questao 3
+
+pairs(Glass[1:9], col = Glass$Type)
+
+par(mfrow=c(1,1))
+correlation <- cor(Glass[1:9])
+corrplot(correlation, order = "hclust")
+
+#Questao 4
+
+pcaObject <- prcomp(Glass[1:9], center = TRUE, scale. = TRUE)
+
+par(mfrow=c(1,2))
+plot(pcaObject, main = "Eigenvalues")
+plot(pcaObject$x, pch=20, cex=1.5, main = "PC1- PC2 Graphic", col=Glass$Type) 
+autoplot(pcaObject, data = Glass, colors = 'type')

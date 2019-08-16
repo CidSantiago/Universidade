@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	lmRidgePred \PYG{o}{\PYGZlt{}\PYGZhy{}} predict\PYG{p}{(}ridgeRegFit\PYG{p}{,} solTestXtrans\PYG{p}{)}
+	ridge.df \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{data.frame}\PYG{p}{(}pred \PYG{o}{=} lmRidgePred\PYG{p}{,} obs \PYG{o}{=} solTestY\PYG{p}{)}
+	defaultSummary\PYG{p}{(}ridge.df\PYG{p}{)}
+\end{Verbatim}

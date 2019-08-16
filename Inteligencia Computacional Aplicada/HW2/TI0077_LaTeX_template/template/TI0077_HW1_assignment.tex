@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb,bm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{color}
+\usepackage{listings}
+
+\oddsidemargin 0.22in
+\textwidth 5.8in
+
+\lstset{
+    backgroundcolor=\color[rgb]{0.86,0.88,0.93},
+    language=R, keywordstyle=\color[rgb]{0,0,1},
+    basicstyle=\footnotesize \ttfamily,breaklines=true,
+    escapeinside={\%*}{*)}
+}
+\begin{document}
+
+%%%%%%%%%% Content starts here %%%%%%%%%%%
+\begin{figure}[!h] \includegraphics [scale=0.3] {Course-logo} \end{figure}
+{\Large \noindent \bf Homework I} 
+\vskip0.8cm
+
+\noindent For this exercise set, choose either Alternative 1 or Alternative 2, below. Regardless of your choice, your submission must comply with the guidelines at the end of this document.
+
+\section*{Alternative 1}
+\noindent You are given a set of data\footnote{The data can be either i) downloaded from the UC Irvine Machine Learning Repository: \url{https://archive.ics.uci.edu/ml/datasets/glass+identification}, or ii) retrieved within R using the commands: \texttt{library(mlbench); data(Glass)}. \\} consisting of $N=214$ observations of glass samples. For each sample, there are $D=9$ predictor variables (the refractive index and the percentages of eight elements: Na, Mg, Al, Si, K, Ca, Ba, and Fe) and the corresponding class label. In total there are $L=7$ classes.
+
+\vskip0.20cm\noindent You must
+\begin{enumerate}
+\item[1] Perform an unconditional mono-variate analysis of each of the $D$ predictors. Specifically, you must plot their (unconditional) histogram, calculate their (unconditional) mean $\mu_d$, standard deviation $\sigma_d$ and skewness $\gamma_d$, with $d=1,\dots,D$, using all the $N$ observations. [To calculate means, standard deviations and skewness, you can either use native functions or implement appropriate expression yourself]
+\item[2] Perform a class-conditional mono-variate analysis of each of the predictors. Again, you must plot their (class-conditional) histogram, calculate their (class-conditional) mean $\mu_{d|l}$, standard deviation $\sigma_{d|l}$ and skewness $\gamma_{d|l}$ , with $d=1,\dots,D$, now using only the $N_l$ observations of class $l$, for eac the $L$ classes.  
+\end{enumerate}
+\noindent Item 1 leads to $D$ histograms, $D$ means, $D$ standard deviations and $D$ skewness values. Item 2 leads to $D \times L$ histograms, $D \times L$ means, $D \times L$ standard deviations and $D \times L$ skewness values. Tabulate all means, standard deviations and values of skewness, for both items. Comment on the results, highlight any remarkable fact that emerge from this exploratory analysis. Are there predictors that seem to show any discriminative power (as in, `are they, alone, capable to separate the classes')?
+
+\vskip0.25cm\noindent Then, you must
+\begin{enumerate}
+\item[3] Perform an unconditional bi-variate analysis of the predictors. Specifically, you must plot the scatter plots between all pairs of predictors. For each point (observation), use colours or symbols to indicate the associated class label. Investigate the existence of potential relationships between pairs of predictors and the presence of potential outliers.
+\end{enumerate}
+Are there any relevant relationships between pairs of predictors? If yes, are these relationships linear? Quantify linear dependence between predictors using pair-wise correlation coefficients $\rho_{d_i,d_j}$, with $d_i,d_j=1,\dots,D$. Either tabulate the correlation coefficients as a correlation matrix $\bm{\rho}$ with $\bm{\rho}(i,j) = \rho_{d_i,d_j}$, or show the matrix as an image. Comment on the results.
+
+\vskip0.25cm\noindent As final task, you must
+\begin{enumerate}
+\item[4] Perform an unconditional multi-variate analysis of the predictors. Specifically, you must perform a principal components analysis of the predictors, retain only the first two principal components (those associated with the two largest eigenvalues) and plot the scatter plot of the projected observations. Again, for each projected point (observation) you must use colours or symbols to indicate the associated class label. [Remember to perform the necessary pre-processing of the data]
+\end{enumerate}
+Are the classes well (or better) separated? Are the boundaries between classes linear? What classes show a high degree of overlap and thus are harder to separate?
+
+\section*{Alternative 2}
+Assuming you have at your disposal a set of data of your own interest and this dataset consists of a certain number of observations, each observation consists of a certain number of predictors (make sure the predictors are numerical, not categorical) and corresponding class label, you might prefer to investigate the characteristics of your own data.
+
+\vskip0.25cm\noindent In this case, you must first describe your data and their features in terms of number of observations $N$, number of predictor variables $D$, number of classes $L$ and class-distribution (that is, the number of observations for each of the classes). 
+
+\vskip0.25cm\noindent Then, you must perform the analysis as defined in Exercise 1. That is:
+
+\vskip0.25cm\noindent You must
+\begin{enumerate}
+\item[1] Perform an unconditional mono-variate analysis of each of the $D$ predictors. Specifically, you must plot their (unconditional) histogram, calculate their (unconditional) mean $\mu_d$, standard deviation $\sigma_d$ and skewness $\gamma_d$, with $d=1,\dots,D$, using all the $N$ observations. [To calculate means, standard deviations and skewness, you can either use native functions or implement appropriate expression yourself]
+\item[2] Perform a class-conditional mono-variate analysis of each of the predictors. Again, you must plot their (class-conditional) histogram, calculate their (class-conditional) mean $\mu_{d|l}$, standard deviation $\sigma_{d|l}$ and skewness $\gamma_{d|l}$ , with $d=1,\dots,D$, now using only the $N_l$ observations of class $l$, for eac the $L$ classes.  
+\end{enumerate}
+\noindent Item 1 leads to $D$ histograms, $D$ means, $D$ standard deviations and $D$ skewness values. Item 2 leads to $D \times L$ histograms, $D \times L$ means, $D \times L$ standard deviations and $D \times L$ skewness values. Tabulate all means, standard deviations and values of skewness, for both items. Comment on the results, highlight any remarkable fact that emerge from this exploratory analysis. Are there predictors that seem to show any discriminative power (as in, `are they, alone, capable to separate the classes')?
+
+\vskip0.25cm\noindent Then, you must
+\begin{enumerate}
+\item[3] Perform an unconditional bi-variate analysis of the predictors. Specifically, you must plot the scatter plots between all pairs of predictors. For each point (observation), use colours or symbols to indicate the associated class label. Investigate the existence of potential relationships between pairs of predictors and the presence of potential outliers.
+\end{enumerate}
+Are there any relevant relationships between pairs of predictors? If yes, are these relationships linear? Quantify linear dependence between predictors using pair-wise correlation coefficients $\rho_{d_i,d_j}$, with $d_i,d_j=1,\dots,D$. Either tabulate the correlation coefficients as a correlation matrix $\bm{\rho}$ with $\bm{\rho}(i,j) = \rho_{d_i,d_j}$, or show the matrix as an image. Comment on the results.
+
+\vskip0.25cm\noindent As final task, you must
+\begin{enumerate}
+\item[4] Perform an unconditional multi-variate analysis of the predictors. Specifically, you must perform a principal components analysis of the predictors, retain only the first two principal components (those associated with the two largest eigenvalues) and plot the scatter plot of the projected observations. Again, for each projected point (observation) you must use colours or symbols to indicate the associated class label. [Remember to perform the necessary pre-processing of the data]
+\end{enumerate}
+Are the classes well (or better) separated? Are the boundaries between classes linear? What classes show a high degree of overlap and thus are harder to separate?
+
+\newpage\section*{Guidelines} 
+\noindent Regardless of your choice (Alternative 1 or  Alternative 2), you must generate a report consisting of the following:
+\begin{itemize}
+\item A description of the steps performed in your analysis, the associated plot/tables of results and your comments.
+\item The code you used to perform the analysis. Regardless of your choice programming, your code must be executable/functioning. The code (and the relevant functions, if needed) can be either pasted in the report (for instance, as an appendix) or packaged together with the report as a zip file.
+\end{itemize}
+
+\noindent You can base your analysis on the work by Max Kuhn in \url{https://github.com/topepo}.\\
+
+\noindent The report must be submitted by {\bf October 01, 2017}. Note that {\bf delays will be penalized} (<24h:  20\% penalty; <48h: 40\% penalty; etc.). \\ 
+
+% To include the code, you can use:
+%\begin{lstlisting}
+%Your code here ....
+%\end{lstlisting} 
+
+
+\end{document}

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k+kn}{library}\PYG{p}{(}AppliedPredictiveModeling\PYG{p}{);}
+	\PYG{k+kn}{library}\PYG{p}{(}e1071\PYG{p}{);}
+	\PYG{k+kn}{library}\PYG{p}{(}corrplot\PYG{p}{);}
+	\PYG{k+kn}{library}\PYG{p}{(}caret\PYG{p}{);}
+	\PYG{k+kn}{library}\PYG{p}{(}elasticnet\PYG{p}{);}
+	\PYG{k+kn}{library}\PYG{p}{(}pls\PYG{p}{);}
+
+	data\PYG{p}{(}solubility\PYG{p}{);}
+
+	skew \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kp}{apply}\PYG{p}{(}solTrainX\PYG{p}{[}\PYG{l+m}{209}\PYG{o}{:}\PYG{l+m}{228}\PYG{p}{],}\PYG{l+m}{2}\PYG{p}{,}skewness\PYG{p}{);}
+
+	\PYG{k+kp}{print}\PYG{p}{(}\PYG{k+kp}{paste}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Média da skewness: \PYGZdq{}}\PYG{p}{,}\PYG{k+kp}{mean}\PYG{p}{(}skew\PYG{p}{)))}
+	\PYG{k+kp}{print}\PYG{p}{(}\PYG{k+kp}{paste}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Máximo valor da skewness: \PYGZdq{}}\PYG{p}{,}\PYG{k+kp}{max}\PYG{p}{(}skew\PYG{p}{)))}
+	\PYG{k+kp}{print}\PYG{p}{(}\PYG{k+kp}{paste}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Minimo valor da skewness: \PYGZdq{}}\PYG{p}{,}\PYG{k+kp}{min}\PYG{p}{(}skew\PYG{p}{)))}
+\end{Verbatim}

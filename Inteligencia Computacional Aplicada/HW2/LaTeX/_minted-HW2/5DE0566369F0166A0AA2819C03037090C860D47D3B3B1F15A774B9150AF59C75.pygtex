@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{k+kp}{set.seed}\PYG{p}{(}\PYG{l+m}{200}\PYG{p}{)}
+	trainingData \PYG{o}{\PYGZlt{}\PYGZhy{}} trainXfiltered
+	trainingData\PYG{o}{\PYGZdl{}}solubility \PYG{o}{\PYGZlt{}\PYGZhy{}} solTrainY
+
+	lmFiltered \PYG{o}{\PYGZlt{}\PYGZhy{}}lm\PYG{p}{(}Solubility \PYG{o}{\PYGZti{}} \PYG{l+m}{.}\PYG{p}{,} data \PYG{o}{=} trainingData\PYG{p}{)}
+	lmPred1 \PYG{o}{\PYGZlt{}\PYGZhy{}} predict\PYG{p}{(}lmFiltered\PYG{p}{,} testXfiltered\PYG{p}{)}
+
+	lmValues1 \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{k+kt}{data.frame}\PYG{p}{(}obs \PYG{o}{=} solTestY\PYG{p}{,} pred \PYG{o}{=} lmPred1\PYG{p}{)}
+	defaultSummary\PYG{p}{(}lmValues1\PYG{p}{)}
+\end{Verbatim}
