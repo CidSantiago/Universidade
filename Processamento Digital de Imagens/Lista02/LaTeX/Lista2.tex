@@ -1,0 +1,84 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+\usepackage{minted}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+
+\BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
+\AfterEndEnvironment{minted}{\end{tcolorbox}}%
+\titleformat*{\section}{\Large\bfseries\filcenter}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			%Topo da Página
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.4]{fig/UFCLOGO.png}
+			\end{figure}
+			\Huge{Centro de Tecnologia}\\
+			\Huge{Departamento de Teleinformática}
+			%Centro da Página
+		\end{center}
+		\vspace{2cm}
+		\begin{center}
+			\Huge{LISTA II}\\
+			\Huge{Filtragem no domínio da frequência}
+		\end{center} 
+		\vspace{2cm}
+		\noindent\textbf{Aluno:} Caio Cid Santiago Barbosa \\
+		\textbf{Matrícula:} 378596\\
+		\textbf{Disciplina:} Processamento Digital de Imagens \\
+		\textbf{Professor:} Paulo Regis \\
+		\textbf{Data:} \today
+		\vfill
+		\begin{center}
+			Fortaleza, Ceará \\
+			2017
+		\end{center}
+	\end{titlepage}
+
+	\section*{Questão 1}
+	
+	\qquad O preenchimento das imagens para a filtragem é necessário devido a necessidade de espaçamento periódico para a transformada discreta de \textit{Fourier}. Dessa forma, analisando as duas imagens percebemos que os dois métodos dão esse espaçamento necessário, de modo que as duas são iguais, já que os histogramas também serão correspondentes devido as suas quantidades de 0s.\\
+	
+	\section*{Questão 2}
+		
+	\qquad Com o preenchimento, transições bruscas/descontinuidades são geradas. Essas descontinuidades fazem surgir componentes de alta frequência, que se destacam quando executamos \textit{Fourier}.
+
+	\section*{Questão 3}
+	
+	\qquad A formula da mascara que soma os 4 vizinhos mais próximos e tira sua média é:
+	
+	\begin{equation}
+	g(x,y) = \cfrac{f(x,y+1) + f(x+1,y) + f(x-1,y) + f(x,y-1) }{4}
+	\end{equation}
+	
+	Se aplicarmos a transformação para o domínio da frequência, usando as propriedades de translação, teremos:
+	
+	\begin{equation}
+	G(u,v) = \cfrac{e^{-j2\pi v/N} + e^{-j2\pi u/M} + e^{j2\pi u/M} + e^{j2\pi v/N}}{4} F(u,v)
+	\end{equation}
+	
+	Como $G(u,v) = H(u,v)*F(u,v) $, temos que:
+	
+	\begin{equation}
+	H(u,v) = \cfrac{e^{-j2\pi v/N} + e^{-j2\pi u/M} + e^{j2\pi u/M} + e^{j2\pi v/N}}{4} 
+	\end{equation}
+	
+	A partir de $\cos(\theta) = \cfrac{e^{-j\theta} + e^{j\theta}}{2} $, podemos concluir que $ e^{-j\theta} + e^{j\theta} = 2\cos(\theta) $. Logo, simplificando a equação 3:
+	
+	\begin{equation}
+	H(u,v) = \cfrac{\cos(2\pi u/M) + \cos(2\pi v/N)}{2}
+	\end{equation} 
+	
+\end{document}
+
