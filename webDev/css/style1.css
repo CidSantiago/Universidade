@@ -1,0 +1,82 @@
+body
+{
+    font-size: 75%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #cccccc ;
+    margin: 30px;
+    text-align: justify;
+}
+
+h1
+{
+    color: brown;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 300%
+}
+
+h2
+{
+    background-color: darkred;
+}
+
+h2.titulo-livro
+{
+    width: 45%;
+    text-align: center;
+}
+
+h2.autor-livro
+{
+    background: #cccccc;
+    text-align: right;
+}
+
+#imagemlivro
+{
+    float: left;
+}
+
+#imagemautor
+{
+    float: right;
+}
+
+h3
+{
+    background-color: darkred;
+}
+
+h3.desc-livro
+{
+    clear: both;
+}
+
+h3.amazon
+{
+    background-color: orange;
+}
+
+h3.saraiva
+{
+    background-color: yellow;
+}
+
+h3.menuresenha
+{
+    background-color: green;
+}
+
+h4.user-resenha
+{
+    background-color: greenyellow;
+}
+
+p.descricao
+{
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+}

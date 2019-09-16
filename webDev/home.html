@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="description" content="Resenhas de livros">
     <meta name="author" content="Caio Cid">
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <script>
+        function changeCSS(cssFile, cssLinkIndex) {
+
+        var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        newlink.setAttribute("href", cssFile);
+
+        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+        }
+    </script>
     <title>Resenharia</title>
 </head>
-<body bgcolor="#CCCCCC">
-    <h1 style="color: brown">Resenharia</h1>
+<body>
+    <h1>Resenharia</h1>
     <hr>
-    <h2 style="background: darkred;">IT: A coisa</h2>    
+    <h2 class="titulo-livro">IT: A coisa</h2>    
     <div id="imagemlivro">
-        <img src="imglivro1.jpg" alt="Imagem da capa do livro">
+        <img src="img/imglivro1.jpg" alt="Imagem da capa do livro">
     </div>
-    <br><b>Stephen King</b>
+    <h2 class="autor-livro">Stephen King</h2>
     <div id="imagemautor">
-        <img src="imgautor1.jpg" alt="Imagem do Autor" width="100">
+        <img src="img/imgautor1.jpg" alt="Imagem do Autor" width="100">
     </div>
     <br>
-    <h3 style="background-color: darkred">Descrição:</h3>
+    <h3 class="desc-livro">Descrição:</h3>
     <p class="descricao">
             Durante as férias escolares de 1958, em Derry, 
             pacata cidadezinha do Maine, Bill, Richie, Stan, 
@@ -38,13 +52,17 @@
             os amigos irão até o fim, mesmo que isso signifique 
             ultrapassar os próprios limites.
     </p>
-    <h3 style="background-color: darkred">Cadastrado por:</h3>
+    <p class="mudarcss">
+        <a href="#" onclick="changeCSS('css/style1.css',0);"> Style 1</a>
+        <a href="#" onclick="changeCSS('css/style2.css',0);"> Style 2</a>
+    </p>
+    <h3>Cadastrado por:</h3>
     <div>
-        <img src="imgusuario1.jpg" alt="Imagem do usuário que cadastrou" width="100">
+        <img src="img/imgusuario1.jpg" alt="Imagem do usuário que cadastrou" width="100">
     </div>
     <br><a href="" id="nomeautor">João, o Usuário</a>
     <hr>
-    <h2 style="background-color: white">Detalhes</h2>
+    <h2>Detalhes</h2>
     <p class="genero"><b>Genero:</b> Horror</p>
     <p class="numpaginas"><b>Numero de páginas:</b> 1104</p>
     <p class="Editora"><b>Editora:</b> Suma</p>
@@ -53,10 +71,10 @@
     <p class="ISBN-13"><b>ISBN-13:</b> 978-8560280940</p>
     <p class="peso"><b>Peso:</b> 1,5 kg</p>
     <hr>
-    <h2 style="background-color: white">Onde encontrar</h2>
-    <h3 style="background-color: orange">Amazon</h3>
+    <h2>Onde encontrar</h2>
+    <h3 class="amazon">Amazon</h3>
     <div id="imagemloja1">
-        <img src="imgloja1.jpg" alt="Imagem da loja 1" width="100">
+        <img src="img/imgloja1.jpg" alt="Imagem da loja 1" width="100">
     </div>
     <br>
     <a href="https://www.amazon.com.br/coisa-Stephen-King/dp/8560280944">Versão Física</a><br>
@@ -64,9 +82,9 @@
     Capítulo de Avaliação disponível.
     <p class="aval"><b>Avaliação:</b>&#9733;&#9733;&#9733;&#9733;&#9733;	
     </p>
-    <h3 style="background-color: yellow">Saraiva</h3>
+    <h3 class="saraiva">Saraiva</h3>
     <div id="imagemloja2">
-        <img src="imgloja2.jpg" alt="imagem da loja 2" width="100">
+        <img src="img/imgloja2.jpg" alt="imagem da loja 2" width="100">
     </div>
     <br>
     <a href="https://www.saraiva.com.br/it-a-coisa-7697879/p">Versão Física</a><br>
@@ -74,27 +92,27 @@
     <p class="avalloja"><b>Avaliação:</b>&#9733;&#9733;&#9733;&#9733;&#9734;	
     </p>
     <hr>
-    <h2 style="background-color: white">Livros semelhantes</h2>
-    <h3 style="background-color: darkred">O iluminado</h3>
+    <h2>Livros semelhantes</h2>
+    <h3>O iluminado</h3>
     <a href="shining.html" target="_self">
-            <img src="imglivro2.jpg" alt="Imagem do livro 2" width="100">    
+            <img src="img/imglivro2.jpg" alt="Imagem do livro 2" width="100">    
     </a>
     <hr>
-    <h2 style="background-color: white">Resenhas</h2>
-    <h3 style="background-color: green">Quantidade de resenhas</h3>
+    <h2 >Resenhas</h2>
+    <h3 class="menuresenha">Quantidade de resenhas</h3>
     <p class="numresenhas"><b>2 resenhas</b></p>
-    <h3 style="background-color: green">Avaliação Média</h3>
+    <h3 class="menuresenha">Avaliação Média</h3>
     <p class="avalsite">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-    <h4 style="background-color: greenyellow">João, o Usuário</h4>
-    <p class="textoresenha1">
+    <h4 class="user-resenha">João, o Usuário</h4>
+    <p class="texto-resenha">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis amet dignissimos deserunt placeat ipsa laboriosam, eveniet itaque possimus impedit voluptatibus ipsam eius dolorem officia autem eum, consectetur at! Aliquid, assumenda.
     </p>
-    <p class="avalresenha1">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-    <h4 style="background-color: greenyellow">Maria, a Usuária</h4>
-    <p class="textoresenha2">
+    <p class="aval-resenha">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <h4 class="user-resenha">Maria, a Usuária</h4>
+    <p class="texto-resenha">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis amet dignissimos deserunt placeat ipsa laboriosam, eveniet itaque possimus impedit voluptatibus ipsam eius dolorem officia autem eum, consectetur at! Aliquid, assumenda.
     </p>
-    <p class="avalresenha2">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <p class="aval-resenha">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
     <hr>  
 
 </body>
