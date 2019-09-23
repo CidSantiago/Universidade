@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Resenhas de livros">
+    <meta name="author" content="Caio Cid">
+    <link rel="stylesheet" type="text/css" href="/css/style1.css">
+    <title>Resenharia</title>
+</head>
+<body>
+    <h1>Resenharia</h1>
+    <hr>
+    <h2 class="titulo-livro"><%= nomelivro %></h2>    
+    <div id="imagemlivro">
+        <img src="<%= imglivro %>" alt="Imagem da capa do livro <%= nomelivro %>">
+    </div>
+    <h2 class="autor-livro"><%= nomeautor %></h2>
+    <div id="imagemautor">
+        <img src="<%= imgautor %>" alt="Imagem do Autor" width="100">
+    </div>
+    <br>
+    <h3 class="desc-livro">Descrição:</h3>
+    <p class="descricao">
+            <%- desclivro.join(" ") %>
+    </p>
+    <p class="mudarcss">
+        <a href="#" onclick="changeCSS('/css/style1.css',0);"> Style 1</a>
+        <a href="#" onclick="changeCSS('/css/style2.css',0);"> Style 2</a>
+    </p><br>
+    <p class="fonte">
+        <a href="#" onclick="changeFontSize(10);"> Aumentar </a>
+        <a href="#" onclick="changeFontSize(-10);"> Diminuir </a>
+    </p>
+    <h3>Cadastrado por:</h3>
+    <div id="imgusuario">
+        <img src="<%= imgusuario %>" alt="Imagem do usuário <%= nomeusuario %>" width="100">
+    </div>
+    <br><a href="" id="nomeusuario"><%= nomeusuario %></a>
+    <hr>
+    <h2>Detalhes</h2>
+    <p class="genero"><b>Genero:</b> <%= genero %></p>
+    <p class="numpaginas"><b>Numero de páginas:</b> <%= numpaginas %></p>
+    <p class="Editora"><b>Editora:</b> <%= editora %></p>
+    <p class="Idioma"><b>Idioma:</b> <%= idioma %></p>
+    <p class="ISBN-10"><b>ISBN-10:</b> <%= ISBN10 %></p>
+    <p class="ISBN-13"><b>ISBN-13:</b> <%= ISBN13 %></p>
+    <p class="peso"><b>Peso:</b> <%= peso %></p>
+    <hr>
+    <h2>Onde encontrar</h2>
+    <% lojas.forEach(function(loja) { %>
+        <h3 class="<%= loja.nome %>"><%= loja.nome %></h3>     
+        <div id="imgloja">
+            <img src="<%= loja.img %>" alt="Imagem da loja <%= loja.name %>" width="100">
+        </div>
+        <br>
+        <%if (loja.fisica != "") { %>
+            <a href="<%= loja.fisica %>">Versão Física</a><br>
+        <% } %>
+        <%if (loja.digital != "") { %>
+            <a href="<%= loja.digital %>">Versão Digital</a><br>
+        <% } %>
+        <%if (loja.capAval != "") { %>
+            <a href="<%= loja.capAval %>">Capitulo de avaliação disponível</a><br>
+        <% } %>
+        <%if (loja.localizacao != "") { %>
+            <a href="<%= loja.localizacao %>">Localizacao</a><br>
+        <% } %>
+        <p class="aval"><b>Avaliação:</b><%- loja.aval %>	
+        </p>
+    <% }); %>
+    <hr>
+
+    <h2>Livros semelhantes</h2>
+    <% livrosemelhantes.forEach( function (livro) { %>
+        <h3><%= livro.nome %></h3>
+        <a href="<%= livro.url %>" target="_self">
+                <img src="<%= livro.img %>" alt="Imagem do livro <%= livro.nome %>" width="100">    
+        </a>
+    <% }); %>
+    
+    <hr>
+    
+    <h2 >Resenhas</h2>
+    <h3 class="menuresenha">Quantidade de resenhas</h3>
+    <p class="numresenhas"><b><%= resenhas.lenght %></b></p>
+    <h3 class="menuresenha">Avaliação Média</h3>
+    <p class="avalsite"><%- avalmedia %></p>
+    <% resenhas.forEach (function (resenha) { %>
+        <h4 class="user-resenha"> <%= resenha.user %></h4>
+        <p class="texto-resenha">
+            <%= resenha.texto %>
+        </p>
+        <p class="aval-resenha"><%- resenha.aval %></p>
+    <% }); %>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

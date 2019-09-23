@@ -4,116 +4,63 @@
     <meta charset="UTF-8">
     <meta name="description" content="Resenhas de livros">
     <meta name="author" content="Caio Cid">
-    <link rel="stylesheet" type="text/css" href="css/style1.css">
-    <script>
-        function changeCSS(cssFile, cssLinkIndex) {
-
-        var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-
-        var newlink = document.createElement("link");
-        newlink.setAttribute("rel", "stylesheet");
-        newlink.setAttribute("type", "text/css");
-        newlink.setAttribute("href", cssFile);
-
-        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="public/css/style1.css">
     <title>Resenharia</title>
 </head>
 <body>
     <h1>Resenharia</h1>
     <hr>
-    <h2 class="titulo-livro">IT: A coisa</h2>    
+    <h2 class="titulo-livro">Titulo</h2>    
     <div id="imagemlivro">
-        <img src="img/imglivro1.jpg" alt="Imagem da capa do livro">
+        <img src="" alt="Imagem da capa do livro">
     </div>
-    <h2 class="autor-livro">Stephen King</h2>
+    <h2 class="autor-livro">Autor</h2>
     <div id="imagemautor">
-        <img src="img/imgautor1.jpg" alt="Imagem do Autor" width="100">
+        <img src="" alt="Imagem do Autor" width="100">
     </div>
     <br>
     <h3 class="desc-livro">Descrição:</h3>
     <p class="descricao">
-            Durante as férias escolares de 1958, em Derry, 
-            pacata cidadezinha do Maine, Bill, Richie, Stan, 
-            Mike, Eddie, Ben e Beverly aprenderam o real sentido 
-            da amizade, do amor, da confiança e... do medo.<br>
-            <br>
-            O mais profundo e tenebroso medo. Naquele verão, 
-            eles enfrentaram pela primeira vez a Coisa, um ser 
-            sobrenatural e maligno que deixou terríveis marcas 
-            de sangue em Derry. Quase trinta anos depois, os 
-            amigos voltam a se encontrar. Uma nova onda de 
-            terror tomou a pequena cidade. Mike Hanlon, o único 
-            que permanece em Derry, dá o sinal.<br>
-            <br>
-            O tempo é curto, mas somente eles podem vencer a Coisa. 
-            Em It: A Coisa, clássico de Stephen King em nova edição, 
-            os amigos irão até o fim, mesmo que isso signifique 
-            ultrapassar os próprios limites.
+            Descrição
     </p>
     <p class="mudarcss">
-        <a href="#" onclick="changeCSS('css/style1.css',0);"> Style 1</a>
-        <a href="#" onclick="changeCSS('css/style2.css',0);"> Style 2</a>
+        <a href="#" onclick="changeCSS('public/css/style1.css',0);"> Style 1</a>
+        <a href="#" onclick="changeCSS('public/css/style2.css',0);"> Style 2</a>
+    </p>
+    <p class="fonte">
+        <a href="#" onclick="changeFontSize(10);"> Aumentar </a>
+        <a href="#" onclick="changeFontSize(-10);"> Diminuir </a>
     </p>
     <h3>Cadastrado por:</h3>
-    <div>
-        <img src="img/imgusuario1.jpg" alt="Imagem do usuário que cadastrou" width="100">
+    <div id="imguser">
+        <img src="" alt="Imagem do usuário que cadastrou" width="100">
     </div>
-    <br><a href="" id="nomeautor">João, o Usuário</a>
+    <br><a href="" id="nomeusuario">Usuario</a>
     <hr>
     <h2>Detalhes</h2>
-    <p class="genero"><b>Genero:</b> Horror</p>
-    <p class="numpaginas"><b>Numero de páginas:</b> 1104</p>
-    <p class="Editora"><b>Editora:</b> Suma</p>
-    <p class="Idioma"><b>Idioma:</b> Português</p>
-    <p class="ISBN-10"><b>ISBN-10:</b> 8560280944</p>
-    <p class="ISBN-13"><b>ISBN-13:</b> 978-8560280940</p>
-    <p class="peso"><b>Peso:</b> 1,5 kg</p>
+    <p class="genero"><b>Genero:</b> </p>
+    <p class="numpaginas"><b>Numero de páginas:</b> </p>
+    <p class="Editora"><b>Editora:</b> </p>
+    <p class="Idioma"><b>Idioma:</b> </p>
+    <p class="ISBN-10"><b>ISBN-10:</b></p>
+    <p class="ISBN-13"><b>ISBN-13:</b> </p>
+    <p class="peso"><b>Peso:</b> </p>
     <hr>
     <h2>Onde encontrar</h2>
-    <h3 class="amazon">Amazon</h3>
-    <div id="imagemloja1">
-        <img src="img/imgloja1.jpg" alt="Imagem da loja 1" width="100">
-    </div>
-    <br>
-    <a href="https://www.amazon.com.br/coisa-Stephen-King/dp/8560280944">Versão Física</a><br>
-    <a href="https://www.amazon.com.br/coisa-Stephen-King-ebook/dp/B00MEQSA4Q/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr="> Versão Digital</a>
-    Capítulo de Avaliação disponível.
-    <p class="aval"><b>Avaliação:</b>&#9733;&#9733;&#9733;&#9733;&#9733;	
-    </p>
-    <h3 class="saraiva">Saraiva</h3>
-    <div id="imagemloja2">
-        <img src="img/imgloja2.jpg" alt="imagem da loja 2" width="100">
-    </div>
-    <br>
-    <a href="https://www.saraiva.com.br/it-a-coisa-7697879/p">Versão Física</a><br>
-    <a href="https://goo.gl/maps/hTpEZUwThBUNMsHL7">Localização</a>
-    <p class="avalloja"><b>Avaliação:</b>&#9733;&#9733;&#9733;&#9733;&#9734;	
-    </p>
+    <div id="lojas"></div> 
     <hr>
     <h2>Livros semelhantes</h2>
-    <h3>O iluminado</h3>
-    <a href="shining.html" target="_self">
-            <img src="img/imglivro2.jpg" alt="Imagem do livro 2" width="100">    
-    </a>
+    <div id="semelhantes"></div>
     <hr>
     <h2 >Resenhas</h2>
     <h3 class="menuresenha">Quantidade de resenhas</h3>
-    <p class="numresenhas"><b>2 resenhas</b></p>
+    <p class="numresenhas"></p>
     <h3 class="menuresenha">Avaliação Média</h3>
-    <p class="avalsite">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-    <h4 class="user-resenha">João, o Usuário</h4>
-    <p class="texto-resenha">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis amet dignissimos deserunt placeat ipsa laboriosam, eveniet itaque possimus impedit voluptatibus ipsam eius dolorem officia autem eum, consectetur at! Aliquid, assumenda.
-    </p>
-    <p class="aval-resenha">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-    <h4 class="user-resenha">Maria, a Usuária</h4>
-    <p class="texto-resenha">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis amet dignissimos deserunt placeat ipsa laboriosam, eveniet itaque possimus impedit voluptatibus ipsam eius dolorem officia autem eum, consectetur at! Aliquid, assumenda.
-    </p>
-    <p class="aval-resenha">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <p class="avalsite"></p>
+    <div id="resenhas"></div>
     <hr>  
 
+    <script src="public/scripts/main.js"></script>
+    <script src="public/scripts/ajax.js"></script>
 </body>
 </html>
