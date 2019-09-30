@@ -12,7 +12,7 @@
     <hr>
     <h2 class="titulo-livro"><%= nomelivro %></h2>    
     <div id="imagemlivro">
-        <img src="<%= imglivro %>" alt="Imagem da capa do livro <%= nomelivro %>">
+        <img src="<%= imglivro %>" alt="Imagem da capa do livro <%= nomelivro %>" width="300">
     </div>
     <h2 class="autor-livro"><%= nomeautor %></h2>
     <div id="imagemautor">
@@ -28,12 +28,12 @@
         <a href="#" onclick="changeCSS('/css/style2.css',0);"> Style 2</a>
     </p><br>
     <p class="fonte">
-        <a href="#" onclick="changeFontSize(10);"> Aumentar </a>
-        <a href="#" onclick="changeFontSize(-10);"> Diminuir </a>
+        <a href="#" onclick="changeFontSize(5);"> --- Aumentar --- </a>
+        <a href="#" onclick="changeFontSize(-5);"> --- Diminuir --- </a>
     </p>
     <h3>Cadastrado por:</h3>
     <div id="imgusuario">
-        <img src="<%= imgusuario %>" alt="Imagem do usuário <%= nomeusuario %>" width="100">
+        <img src="<%= imgusuario %>" alt="Imagem do usuário <%= nomeusuario %>" width="150">
     </div>
     <br><a href="" id="nomeusuario"><%= nomeusuario %></a>
     <hr>
@@ -50,7 +50,7 @@
     <% lojas.forEach(function(loja) { %>
         <h3 class="<%= loja.nome %>"><%= loja.nome %></h3>     
         <div id="imgloja">
-            <img src="<%= loja.img %>" alt="Imagem da loja <%= loja.name %>" width="100">
+            <img src="<%= loja.img %>" alt="Imagem da loja <%= loja.name %>" width="150">
         </div>
         <br>
         <%if (loja.fisica != "") { %>
@@ -74,7 +74,7 @@
     <% livrosemelhantes.forEach( function (livro) { %>
         <h3><%= livro.nome %></h3>
         <a href="<%= livro.url %>" target="_self">
-                <img src="<%= livro.img %>" alt="Imagem do livro <%= livro.nome %>" width="100">    
+                <img src="<%= livro.img %>" alt="Imagem do livro <%= livro.nome %>" width="150">    
         </a>
     <% }); %>
     

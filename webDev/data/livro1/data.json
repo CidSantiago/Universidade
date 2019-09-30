@@ -1,8 +1,8 @@
 {
     "nomelivro":"IT: A coisa",
     "nomeautor": "Stephen King",
-    "imglivro": "public/img/imglivro1.jpg",
-    "imgautor": "public/img/imgautor1.jpg",
+    "imglivro": "/img/imglivro1.jpg",
+    "imgautor": "/img/imgautor1.jpg",
     "desclivro":[ "Durante as férias escolares de 1958, em Derry,",
         "pacata cidadezinha do Maine, Bill, Richie, Stan, ", 
     "Mike, Eddie, Ben e Beverly aprenderam o real sentido", 
@@ -21,7 +21,7 @@
     "ultrapassar os próprios limites."
     ] ,
     "nomeusuario": "João, o Usuário",
-    "imgusuario": "public/img/imgusuario1.jpg",
+    "imgusuario": "/img/imgusuario1.jpg",
     "genero": "Horror",
     "numpaginas": "1104",
     "editora": "Suma",
@@ -30,11 +30,19 @@
     "ISBN13": "978-8560280940",
     "peso": "1,5 kg",
     "lojas":[
-        {"nome": "Amazon", "img": "public/img/imgloja1.jpg", "fisica": "https://www.amazon.com.br/coisa-Stephen-King/dp/8560280944", "digital": "https://www.amazon.com.br/coisa-Stephen-King-ebook/dp/B00MEQSA4Q/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=", "capAval": "https://www.amazon.com.br/coisa-Stephen-King-ebook/dp/B00MEQSA4Q/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=", "localizacao": "", "aval": "&#9733;&#9733;&#9733;&#9733;&#9733;"},
-        {"nome": "Saraiva", "img": "public/img/imgloja2.jpg", "fisica": "https://www.saraiva.com.br/it-a-coisa-7697879/p", "digital": "", "capAval": "", "localizacao": "https://goo.gl/maps/hTpEZUwThBUNMsHL7", "aval": "&#9733;&#9733;&#9733;&#9733;&#9734;"}
+        {"nome": "Amazon", "img": "/img/imgloja1.jpg", "fisica": "https://www.amazon.com.br/coisa-Stephen-King/dp/8560280944", "digital": "https://www.amazon.com.br/coisa-Stephen-King-ebook/dp/B00MEQSA4Q/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=", "capAval": "https://www.amazon.com.br/coisa-Stephen-King-ebook/dp/B00MEQSA4Q/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=", "localizacao": "", "aval": "&#9733;&#9733;&#9733;&#9733;&#9733;"},
+        {"nome": "Saraiva", "img": "/img/imgloja2.jpg", "fisica": "https://www.saraiva.com.br/it-a-coisa-7697879/p", "digital": "", "capAval": "", "localizacao": "https://goo.gl/maps/hTpEZUwThBUNMsHL7", "aval": "&#9733;&#9733;&#9733;&#9733;&#9734;"}
     ],
     "livrosemelhantes":[
-        {"nome": "O iluminado", "url": "shining.html", "img": "public/img/imglivro2.jpg"}
+        {
+            "nome": "O iluminado", 
+            "url": "shining.html", 
+            "img": "/img/imglivro2.jpg"},
+        {
+            "nome": "Carie, a estranha",
+            "url": "carie.html",
+            "img":"/img/imglivro3.jpg" 
+        }   
     ],
     "avalmedia":"&#9733;&#9733;&#9733;&#9733;&#9733;",
     "resenhas":[

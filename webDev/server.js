@@ -1,4 +1,3 @@
-/*
 //Server using Server-side proccessing
 const fs = require('fs');
 const express = require('express');
@@ -9,6 +8,7 @@ const port = 8080;
 
 const data1 = JSON.parse(fs.readFileSync("./data/livro1/data.json"));
 const data2 = JSON.parse(fs.readFileSync("./data/livro2/data.json"));
+const data3 = JSON.parse(fs.readFileSync("./data/livro3/data.json"))
 
 app.set('view engine','ejs');
 app.use(express.static("public"));
@@ -25,13 +25,17 @@ app.get('/home.html', function (req, res) {
     res.render('home', data1);
 });
 
+app.get('/carie.html', function (req, res) {
+    res.render('home', data3);
+});
+
 
 app.listen( port, hostname, function () {
-    console.log('Servidor rodando em http://${hostname}:${port}/');
+    console.log('Servidor rodando em http://'+hostname+':'+port+'/');
 });
-*/
 
 // Server using client-side proccessing
+/*
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
@@ -50,3 +54,4 @@ http.createServer(function (req, res) {
 	});
 }).listen(8080); 
 console.log("Aguardando requisicoes na porta 8080!");
+*/

@@ -11,6 +11,18 @@ function changeCSS(cssFile, cssLinkIndex) {
     }
 
 function changeFontSize(fontvar) {
-    document.body.style.fontSize = fontvar;
-   }
+    if (fontvar == 0) {
+        document.body.style.fontSize = "12px";
+    } else { 
+    var refbody = document.body;
+    var style = window.getComputedStyle(refbody);
+    var fontSize = parseInt(style.getPropertyValue("font-size"));
+
+    console.log(fontSize);
+
+    document.body.style.fontSize = (fontSize + parseInt(fontvar)) + "px";
+   
+    }
+
+}
 

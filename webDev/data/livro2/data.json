@@ -1,8 +1,8 @@
 {
     "nomelivro":"O Iluminado",
     "nomeautor": "Stephen King",
-    "imglivro": "public/img/imglivro2.jpg",
-    "imgautor": "public/img/imgautor1.jpg",
+    "imglivro": "/img/imglivro2.jpg",
+    "imgautor": "/img/imgautor1.jpg",
     "desclivro":["Danny Torrance não é um menino comum. Danny é ", 
         "capaz de ouvir pensamentos. Ele pode transportar-se", 
         "no tempo e olhar o passado e o futuro. Danny é um ",
@@ -25,7 +25,7 @@
         "guerra sem testemunhas vencerá o mais forte." 
     ] ,
     "nomeusuario": "Maria, a Usuária",
-    "imgusuario": "public/img/imgusuario2.jpg",
+    "imgusuario": "/img/imgusuario2.jpg",
     "genero": "Horror",
     "numpaginas": "520",
     "editora": "Suma",
@@ -35,14 +35,14 @@
     "peso": "889 g",
     "lojas":[
         {   "nome": "Amazon", 
-            "img": "public/img/imgloja1.jpg", 
+            "img": "/img/imgloja1.jpg", 
             "fisica": "https://www.amazon.com.br/iluminado-Stephen-King/dp/8556510469/", 
             "digital": "https://www.amazon.com.br/iluminado-Cole%C3%A7%C3%A3o-Biblioteca-Stephen-King-ebook/dp/B0743MBY15/",
             "capAval": "https://www.amazon.com.br/iluminado-Cole%C3%A7%C3%A3o-Biblioteca-Stephen-King-ebook/dp/B0743MBY15/", 
             "localizacao": "", 
             "aval": "&#9733;&#9733;&#9733;&#9733;&#9733;"},
         {   "nome": "Saraiva", 
-            "img": "public/img/imgloja2.jpg", 
+            "img": "/img/imgloja2.jpg", 
             "fisica": "https://www.saraiva.com.br/o-iluminado-9736219/p", 
             "digital": "", 
             "capAval": "", 
@@ -52,7 +52,12 @@
     "livrosemelhantes":[
         {   "nome": "IT: A coisa", 
             "url": "home.html", 
-            "img": "public/img/imglivro1.jpg"}
+            "img": "/img/imglivro1.jpg"},
+        {
+            "nome":"Carie, a Estranha",
+            "url": "carie.html",
+            "img": "/img/imglivro3.jpg"
+        }
     ],
     "avalmedia":"&#9733;&#9733;&#9733;&#9734;&#9734;",
     "resenhas":[
