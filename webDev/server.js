@@ -25,7 +25,7 @@ app.get('/home.html', function (req, res) {
     res.render('home', data1);
 });
 
-app.get('/carie.html', function (req, res) {
+app.get('/carrie.html', function (req, res) {
     res.render('home', data3);
 });
 
