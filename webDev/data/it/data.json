@@ -1,7 +1,7 @@
 {
     "nomelivro":"IT: A coisa",
     "nomeautor": "Stephen King",
-    "imglivro": "/img/imglivro1.jpg",
+    "imglivro": "/img/it.jpg",
     "imgautor": "/img/imgautor1.jpg",
     "desclivro":[ "Durante as férias escolares de 1958, em Derry,",
         "pacata cidadezinha do Maine, Bill, Richie, Stan, ", 
@@ -36,12 +36,12 @@
     "livrosemelhantes":[
         {
             "nome": "O iluminado", 
-            "url": "shining.html", 
-            "img": "/img/imglivro2.jpg"},
+            "url": "shining", 
+            "img": "/img/shining.jpg"},
         {
-            "nome": "Carie, a estranha",
-            "url": "carrie.html",
-            "img":"/img/imglivro3.jpg" 
+            "nome": "Carrie, a estranha",
+            "url": "carrie",
+            "img":"/img/carrie.jpg" 
         }   
     ],
     "avalmedia":"&#9733;&#9733;&#9733;&#9733;&#9733;",

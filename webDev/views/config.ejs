@@ -1,0 +1,27 @@
+<%- contentFor('conteudo') %>
+
+<h2>Estilo da página</h2>
+
+<button onclick="changeCSS('/css/style1.css',0);">Estilo 1</button>
+<button onclick="changeCSS('/css/style2.css',0);">Estilo 2</button>
+<h3>Estilo atual</h3>
+<div id="style"></div>
+
+<h2>Tamanho da fonte </h2>
+
+<button onclick="changeFontSize(5);">Aumentar</button>
+<button onclick="changeFontSize(-5);">Diminuir</button>
+<button onclick="changeFontSize(0);">Padrão</button>
+
+<h3>Fonte atual </h3>
+<div id="font"></div>
+
+<h3>Cookies</h3>
+<button onclick="resetCookies();">Resetar Cookies</button>
+
+<%- contentFor('script') %>
+
+<script src="/scripts/main.js"></script>
+<script>
+showCookies();
+</script>

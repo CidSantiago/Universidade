@@ -1,7 +1,7 @@
 {
     "nomelivro":"Carrie, a Estranha",
     "nomeautor": "Stephen King",
-    "imglivro": "/img/imglivro3.jpg",
+    "imglivro": "/img/carrie.jpg",
     "imgautor": "/img/imgautor1.jpg",
     "desclivro":["Carrie é uma adolescente tímida e solitária. ",
         "Aos 16 anos, é completamente dominada pela mãe, uma fanática",
@@ -48,12 +48,12 @@
     ],
     "livrosemelhantes":[
         {   "nome": "IT: A coisa", 
-            "url": "home.html", 
-            "img": "/img/imglivro1.jpg"},
+            "url": "it", 
+            "img": "/img/it.jpg"},
         {
             "nome": "O Iluminado",
-            "url": "shining.html",
-            "img":"/img/imglivro2.jpg"
+            "url": "shining",
+            "img":"/img/shining.jpg"
         }
     ],
     "avalmedia":"&#9733;&#9733;&#9733;&#9733;&#9734;",

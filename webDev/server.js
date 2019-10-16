@@ -1,57 +1,61 @@
 //Server using Server-side proccessing
 const fs = require('fs');
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts'); 
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+
 var app = express();
 
 const hostname = '127.0.0.1';
 const port = 8080;
 
-const data1 = JSON.parse(fs.readFileSync("./data/livro1/data.json"));
-const data2 = JSON.parse(fs.readFileSync("./data/livro2/data.json"));
-const data3 = JSON.parse(fs.readFileSync("./data/livro3/data.json"))
-
 app.set('view engine','ejs');
 app.use(express.static("public"));
+app.use(cookieParser());
+app.use(expressLayouts) 
 
-app.get('/', function (req, res) {
-    res.render('home', data1);
+app.get('/', (req, res) => {
+	var dirData = path.join(__dirname+'/data');
+	fs.readdir(dirData, function(err, items) {
+	    livrosDisponiveis = items;
+		
+		// Carrega cookie
+		var lastBook = req.cookies.lastBook;
+		var short = [];
+
+		// Visualizacao de conteudo do cookie
+		if (lastBook != undefined) {
+			var dirLastBook = path.join(dirData+'/'+lastBook+'/short.json');
+			var data = JSON.parse(fs.readFileSync(dirLastBook));
+			console.log('Cookie:'+ lastBook+'\n');
+		} else {
+			console.log('Cookie: Não Inicializado\n');
+		}
+		
+		livrosDisponiveis.forEach(book => {
+			var dirBook = path.join(dirData+'/'+book+'/short.json');
+			var data = JSON.parse(fs.readFileSync(dirBook));
+			short.push(data);
+		});
+
+		res.render('home', {short, data, lastBook});
+	});
+})	
+
+app.get('/book/:usu', function (req, res) {
+	var dirData = path.join(__dirname+'/data/'+req.params.usu+'/data.json');
+	var data = JSON.parse(fs.readFileSync(dirData));
+	
+	res.cookie('lastBook', req.params.usu);
+    res.render('book', data);
 });
 
-app.get('/shining.html', function (req, res) {
-    res.render('home', data2);
+app.get('/config', function (req, res) {
+    res.render('config');
 });
-
-app.get('/home.html', function (req, res) {
-    res.render('home', data1);
-});
-
-app.get('/carrie.html', function (req, res) {
-    res.render('home', data3);
-});
-
 
 app.listen( port, hostname, function () {
     console.log('Servidor rodando em http://'+hostname+':'+port+'/');
 });
-
-// Server using client-side proccessing
-/*
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
-
-http.createServer(function (req, res) {
-	var q = url.parse(req.url,true); 
-	var filename = "."+q.pathname;
-	fs.readFile(filename, function(err,data) {
-		if (err) {
-			res.writeHead(404, {'Content-Type':'text/html'});
-			return res.end("404 File Not Found");
-		}
-		res.writeHead(200);
-		res.write(data);
-		return res.end();
-	});
-}).listen(8080); 
-console.log("Aguardando requisicoes na porta 8080!");
-*/

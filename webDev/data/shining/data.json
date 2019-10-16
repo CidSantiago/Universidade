@@ -1,7 +1,7 @@
 {
     "nomelivro":"O Iluminado",
     "nomeautor": "Stephen King",
-    "imglivro": "/img/imglivro2.jpg",
+    "imglivro": "/img/shining.jpg",
     "imgautor": "/img/imgautor1.jpg",
     "desclivro":["Danny Torrance não é um menino comum. Danny é ", 
         "capaz de ouvir pensamentos. Ele pode transportar-se", 
@@ -51,12 +51,12 @@
     ],
     "livrosemelhantes":[
         {   "nome": "IT: A coisa", 
-            "url": "home.html", 
-            "img": "/img/imglivro1.jpg"},
+            "url": "it", 
+            "img": "/img/it.jpg"},
         {
             "nome":"Carrie, a Estranha",
-            "url": "carrie.html",
-            "img": "/img/imglivro3.jpg"
+            "url": "carrie",
+            "img": "/img/carrie.jpg"
         }
     ],
     "avalmedia":"&#9733;&#9733;&#9733;&#9734;&#9734;",
