@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(expressLayouts) 
 
 app.get('/', (req, res) => {
-	var dirData = path.join(__dirname+'/data');
+	var dirData = path.join(__dirname+'/public/data/livros/');
 	fs.readdir(dirData, function(err, items) {
 	    livrosDisponiveis = items;
 		
@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 })	
 
 app.get('/book/:usu', function (req, res) {
-	var dirData = path.join(__dirname+'/data/'+req.params.usu+'/data.json');
+	var dirData = path.join(__dirname+'/public/data/livros/'+req.params.usu+'/data.json');
 	var data = JSON.parse(fs.readFileSync(dirData));
 	
 	res.cookie('lastBook', req.params.usu);

@@ -16,7 +16,7 @@
 <% short.forEach( function (livro) { %>
     <h3><%= livro.nomelivro %></h3>
     <a href="book/<%= livro.id %>" target="_self">
-        <img src="/img/<%= livro.id %>.jpg" alt="Imagem do livro <%= livro%>" width="150">    
+        <img src="/data/livros/<%= livro.id%>/<%= livro.id %>.jpg" alt="Imagem do livro <%= livro%>" width="150">    
     </a>
     <%- livro.avalmedia %>
 <% }); %>
