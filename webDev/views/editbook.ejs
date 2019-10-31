@@ -1,0 +1,85 @@
+<%- contentFor('conteudo') %>
+
+<h1>Modo Edição : <%= id %></h1>
+<form action='<%= id %>/upload' method='post' encType="multipart/form-data">
+    <fieldset>
+        <legend>Seção 1: Informações iniciais</legend>
+        Imagem do Livro:
+        <input type="file" name="formimglivro" value="">
+        </br>
+        Nome do livro:
+        <input type="text" name="formnomelivro" value="<%= nomelivro %>">
+        </br>
+        Nome do Autor:
+        <input type="text" name="formnomeautor" value="<%= nomeautor %>">
+        </br>
+        <!-- Falta inserir imagem autor -->
+        Descrição:
+        <!-- Verificar tipo "long text"-->
+        <textarea name="formdescricao" rows="10" cols="30"><%- desclivro.join('') %></textarea>
+        </br>
+        Nome do usuario:
+        <!-- Falta inserir imagem do usuario -->
+        <input type="text" name="formnomeusuario" value="<%= nomeusuario %>">
+        </br>
+    </fieldset>
+    <fieldset>
+        <legend>Seção 2: Detalhes</legend>
+        Genero:
+        <input type="text" name="formgenero" value="<%= genero %>">
+        </br>
+        Número de paginas:
+        <input type="text" name="formnumpaginas" value="<%= numpaginas %>">
+        </br>
+        Editora:
+        <input type="text" name="formeditora" value="<%= editora %>">
+        </br>
+        Idioma:
+        <input type="text" name="formidioma" value="<%= idioma %>">
+        </br>
+        ISBN-10:
+        <input type="text" name="formISBN10" value="<%= ISBN10 %>">
+        </br>
+        ISBN-13:
+        <input type="text" name="formISBN13" value="<%= ISBN13 %>">
+        </br>
+        Peso:
+        <input type="text" name="formpeso" value="<%= peso %>">
+        </br>
+    </fieldset>
+<!--     <fieldset>
+        <legend>Seção 3: Onde encontrar</legend>
+        <% lojas.forEach(function(loja) { %>
+            Nome da loja:
+            <input type="text" name="form<%=loja.nome %>nome" value="<%= loja.nome %>">
+            </br>
+            <%if (loja.fisica != "") { %>
+                Versão fisica:
+                <input type="text" name="form<%=loja.nome %>fisica" value="<%= loja.fisica %>">
+                </br>
+            <% } %>
+            <%if (loja.digital != "") { %>
+                Versão Digital:
+                <input type="text" name="form<%=loja.nome %>digital" value="<%= loja.digital %>">
+                </br>
+            <% } %>
+            <%if (loja.capAval != "") { %>
+                <a href="<%= loja.capAval %>">Capitulo de avaliação disponível</a><br>
+                Capítulo de avaliação:
+                <input type="text" name="form<%=loja.nome %>capAval" value="<%= loja.capAval %>">
+                </br>
+            <% } %>
+            <%if (loja.localizacao != "") { %>
+                <a href="<%= loja.localizacao %>">Localizacao</a><br>
+                Localização:
+                <input type="text" name="form<%=loja.nome %>localizacao" value="<%= loja.localizacao %>">
+                </br>
+            <% } %>
+        <% }); %>
+    </fieldset> -->
+
+    <input type='submit' value='Upload!'>
+</form>	
+
+<%- contentFor('script') %>
+<script src="../scripts/main.js"></script>

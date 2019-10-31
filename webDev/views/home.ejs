@@ -9,6 +9,7 @@
         </a>        
     </div>
     <%- data.avalmedia %>
+    <a href="edit/<%=lastBook %>"> Editar Livro</a>
 <% } %>
 
 <h2> Livros Disponíveis </h2>
@@ -19,6 +20,8 @@
         <img src="/data/livros/<%= livro.id%>/<%= livro.id %>.jpg" alt="Imagem do livro <%= livro%>" width="150">    
     </a>
     <%- livro.avalmedia %>
+    <a href="edit/<%=livro.id %>"> Editar Livro</a>
+
 <% }); %>
 
 <%- contentFor('script') %>
