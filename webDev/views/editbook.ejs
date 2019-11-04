@@ -14,13 +14,14 @@
         <input type="text" name="formnomeautor" value="<%= nomeautor %>">
         </br>
         <!-- Falta inserir imagem autor -->
-        Descrição:
+        Descrição:</br>
         <!-- Verificar tipo "long text"-->
-        <textarea name="formdescricao" rows="10" cols="30"><%- desclivro.join('') %></textarea>
-        </br>
-        Nome do usuario:
-        <!-- Falta inserir imagem do usuario -->
-        <input type="text" name="formnomeusuario" value="<%= nomeusuario %>">
+        <textarea name="formdescricao" rows="30" cols="90"><% if (Array.isArray(desclivro)) { %>
+        <%- desclivro.join(" ") %> 
+        <% } else { %>
+        <%-desclivro%> 
+        <% } %>
+        </textarea>
         </br>
     </fieldset>
     <fieldset>

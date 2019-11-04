@@ -67,10 +67,14 @@ app.get('/config', function (req, res) {
 // Verificar utilização do :usu
 app.post('/edit/:bookid/upload', function (req, res) {
 	
+	var bookid = req.params.bookid;
+	var direct = path.join(__dirname + '/public/data/livros/'+bookid);
+	var upload = path.join(__dirname + '/public/uploads');
+
 	var bookImgstorage = multer.diskStorage({
 		// destino do arquivo
 		destination: function (req, file, cb) {
-			cb(null, '/public/data/livros/'+ req.params.bookid)
+			cb(null, upload)
 		},
 		// nome do arquivo
 		filename: function (req, file, cb) {
@@ -82,45 +86,54 @@ app.post('/edit/:bookid/upload', function (req, res) {
 	var bookImgupload = multer({
 		storage : bookImgstorage,
 		limits  : { fileSize: maxSize }
-	});
+	}).single('formimglivro');
 
-	bookImgupload.single('formimglivro') ;
-
-	var direct = path.join(__dirname + '/public/data/livros/'+req.params.bookid);
-	
-	// Faltar atualizar loja no JSON
-	var new_data = JSON.stringify({
-		id: req.body.formid,
-    	nomelivro: req.body.formnomelivro,
-    	nomeautor: req.body.formnomeautor,
-    	desclivro: req.body.formdesclivro,
-    	nomeusuario: req.body.formnomeusuario,
-    	genero: req.body.formgenero,
-    	numpaginas: req.body.formnumpaginas,
-    	editora: req.body.formeditora,
-    	idioma: req.body.formidioma,
-    	ISBN10: req.body.formISBN10,
-    	ISBN13: req.body.formISBN13,
-		peso: req.body.formpeso,
-	});
-	
-	var new_short = JSON.stringify({
-		id: req.body.formid,
-		nomelivro: req.body.formnomelivro
-	});
-
-	fs.writeFile(direct + '/data.json', new_data, function (err, data){
+	bookImgupload(req, res, function (err) {
 		if (err) {
-			console.log('Erro gravando o arquivo data.json');
-			return console.error(err);
+			res.send(' <h2>O seu upload NÃO foi realizado! </h2> <br>'+
+			'erro: '+ err.message +'<br>'+
+			'<a href="/">Voltar para home</a>');
+            return console.log(err);
 		}
-	});
+		
 
-	fs.writeFile(direct + '/short.json', new_short, function (err, data){
-		if (err) {
-			console.log('Erro gravando o arquivo short.json');
-			return console.error(err);
+		if (fs.existsSync(upload+'/'+bookid+'.jpg')) {
+			fs.renameSync(upload+'/'+bookid+'.jpg',direct+'/'+bookid+'.jpg');
 		}
+
+		var oldData = JSON.parse(fs.readFileSync(direct+'/data.json').toString());
+		var oldShort = JSON.parse(fs.readFileSync(direct+'/short.json').toString());
+
+		// Faltar atualizar loja no JSON
+		oldData.nomelivro = req.body.formnomelivro;
+		oldData.nomeautor = req.body.formnomeautor;
+		oldData.desclivro = req.body.formdescricao;
+		oldData.genero = req.body.formgenero;
+		oldData.numpaginas = req.body.formnumpaginas;
+		oldData.editora = req.body.formeditora;
+		oldData.idioma = req.body.formidioma;
+		oldData.ISBN10 = req.body.formISBN10;
+		oldData.ISBN13 = req.body.formISBN13;
+		oldData.peso = req.body.formpeso;
+		
+		oldShort.nomelivro = req.body.formnomelivro;
+
+		fs.writeFile(direct + '/data.json', JSON.stringify(oldData), function (err, data){
+			if (err) {
+				console.log('Erro gravando o arquivo data.json');
+				return console.error(err);
+			}
+		});
+
+		fs.writeFile(direct + '/short.json', JSON.stringify(oldShort), function (err, data){
+			if (err) {
+				console.log('Erro gravando o arquivo short.json');
+				return console.error(err);
+			}
+		});
+
+		res.send('<h2>Upload realizado com sucesso! </h2>'+
+        '<a href="/">Voltar para home</a>');
 	});
 });
 

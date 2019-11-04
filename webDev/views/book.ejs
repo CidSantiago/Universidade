@@ -11,7 +11,11 @@
 <br>
 <h3 class="desc-livro">Descrição:</h3>
 <p class="descricao">
-        <%- desclivro.join(" ") %>
+        <% if (Array.isArray(desclivro)) { %>
+            <%- desclivro.join(" ") %> 
+        <% } else { %>
+        <%- desclivro %> 
+        <% } %>
 </p>
 <h3>Cadastrado por:</h3>
 <div id="imgusuario">
