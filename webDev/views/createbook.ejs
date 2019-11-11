@@ -1,0 +1,94 @@
+<%- contentFor('conteudo') %>
+
+<h2>Modo Criação : </h2>
+<form action='/create/upload' method='post' encType="multipart/form-data">
+    <fieldset>
+        <legend>Seção 1: Informações iniciais</legend>
+        ID do livro:
+        <input type="text" name="formidlivro" value="" required>
+        </br>
+        Imagem do Livro:
+        <input type="file" name="formimglivro" value="" required> 
+        </br>
+        Nome do livro:
+        <input type="text" name="formnomelivro" value="" required>
+        </br>
+        Imagem do autor:
+        <input type="file" name="formimgautor" value="" required>
+        </br>
+        Nome do Autor:
+        <input type="text" name="formnomeautor" value="" required>
+        </br>
+        <!-- Falta inserir imagem autor -->
+        Descrição:</br>
+        <textarea name="formdescricao" rows="30" cols="90" required>
+        </textarea>
+        </br>
+    </fieldset>
+    <fieldset>
+        <legend>Seção 2: Detalhes</legend>
+        Genero:
+        <input type="text" name="formgenero" value="" required>
+        </br>
+        Número de paginas:
+        <input type="text" name="formnumpaginas" value="" required>
+        </br>
+        Editora:
+        <input type="text" name="formeditora" value="" required>
+        </br>
+        Idioma:
+        <input type="text" name="formidioma" value="" required>
+        </br>
+        ISBN-10:
+        <input type="text" name="formISBN10" value="" required>
+        </br>
+        ISBN-13:
+        <input type="text" name="formISBN13" value="" required>
+        </br>
+        Peso:
+        <input type="text" name="formpeso" value="" required>
+        </br>
+    </fieldset>
+    <fieldset>
+        <legend>Seção 3: Onde encontrar</legend>
+            Imagem da loja:
+            <input type="file" name="formimgloja" value="" required>
+            </br>    
+            Nome da loja:
+            <input type="text" name="formlojanome" value="" required>
+            </br>
+            Versão fisica:
+            <input type="text" name="formlojafisica" value="" >
+            </br>
+            Versão Digital:
+            <input type="text" name="formlojadigital" value="" >
+            </br>
+            Capítulo de avaliação:
+            <input type="text" name="formlojacapAval" value="" >
+            </br>
+            Localização:
+            <input type="text" name="formlojalocalizacao" value="" >
+            </br>
+    </fieldset>
+    <fieldset>
+        <legend>Seção 4: Usuario</legend>
+            Nome do usuario:
+            <input type="text" name="formusuarionome" value="" required>
+            </br>
+            Imagem do usuario:
+            <input type="file" name="formimgusuario" value="" required>
+            </br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Seção 5: Livros Semelhantes</legend>
+            ID do livro:
+            <input type="text" name="formsemelid" value="" required>
+            </br>
+    </fieldset>
+
+    <input type='submit' value='Upload!'>
+</form>	
+
+<%- contentFor('script') %>
+<script src="../scripts/main.js"></script>

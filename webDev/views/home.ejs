@@ -10,6 +10,7 @@
     </div>
     <%- data.avalmedia %>
     <a href="edit/<%=lastBook %>"> Editar Livro</a>
+    <a href="delet/<%=lastBook %>"> Excluir Livro</a>
 <% } %>
 
 <h2> Livros Disponíveis </h2>
@@ -18,9 +19,10 @@
     <h3><%= livro.nomelivro %></h3>
     <a href="book/<%= livro.id %>" target="_self">
         <img src="/data/livros/<%= livro.id%>/<%= livro.id %>.jpg" alt="Imagem do livro <%= livro%>" width="150">    
-    </a>
+    </a><br>
     <%- livro.avalmedia %>
     <a href="edit/<%=livro.id %>"> Editar Livro</a>
+    <a href="delet/<%=livro.id %>"> Excluir Livro</a>
 
 <% }); %>
 

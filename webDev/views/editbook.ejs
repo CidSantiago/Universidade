@@ -1,6 +1,6 @@
 <%- contentFor('conteudo') %>
 
-<h1>Modo Edição : <%= id %></h1>
+<h2>Modo Edição : <%= id %></h2>
 <form action='<%= id %>/upload' method='post' encType="multipart/form-data">
     <fieldset>
         <legend>Seção 1: Informações iniciais</legend>
@@ -15,7 +15,6 @@
         </br>
         <!-- Falta inserir imagem autor -->
         Descrição:</br>
-        <!-- Verificar tipo "long text"-->
         <textarea name="formdescricao" rows="30" cols="90"><% if (Array.isArray(desclivro)) { %>
         <%- desclivro.join(" ") %> 
         <% } else { %>
